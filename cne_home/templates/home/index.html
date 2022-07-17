@@ -1,6 +1,134 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block page_header %}
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .logo-font {
+        font-family: 'Pacifico', cursive;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">worked</h1>
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <a class="masthead-brand logo-font" href="{% url 'home' %}">
+                    <h3>CNEmbroidery</h3> 
+                </a>
+                <nav class="nav justify-content-center">
+                    <div class="nav-item dropdown">
+                        <a 
+                            class="nav-link dropdown-toggle" 
+                            href="#" id="myaccount-dropdown" 
+                            data-toggle="dropdown" 
+                            aria-haspopup="true" 
+                            aria-expanded="false"
+                        >My Account</a>
+
+                        <div class="dropdown-menu" aria-labelledby="myaccount-dropdown">
+                            {% if requst.user.is_authenticated %}
+                                {% if requst.user.is_superuser %}
+                                <a class="dropdown-item" href="#">Product Management</a>
+                                {% endif %}
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                            {% else %}
+                                <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                                <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a 
+                            class="nav-link dropdown-toggle" 
+                            href="#" id="search-dropdown" 
+                            data-toggle="dropdown" 
+                            aria-haspopup="true" 
+                            aria-expanded="false"
+                        >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="search-dropdown">
+                            <form
+                                method="GET" action=""
+                                class="form-inline mx-5 my-md-2 "
+                            >
+                                <input class="form-control" type="text" placeholder="Size" aria-label="Search">
+                                <button class="btn btn-outline-gray my-2 my-sm-0 border" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a
+                            class="
+                                nav-link 
+                                dropdown-toggle
+                                {% if grand_total %}text-info
+                                font-weight-bold
+                                {% else %}
+                                text-black
+                                {% endif %}
+                            " 
+                            href="#" id="cart-dropdown" 
+                            data-toggle="dropdown" 
+                            aria-haspopup="true" 
+                            aria-expanded="false"
+                        >
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="dropdown-menu text-center" aria-labelledby="cart-dropdown">
+                                <p>
+                                    {% if grand_total %}
+                                        €{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        €0.00
+                                    {% endif %}    
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">Cover your page.</h1>
+            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <p class="lead">
+                <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+            </p>
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
 {% endblock %}
