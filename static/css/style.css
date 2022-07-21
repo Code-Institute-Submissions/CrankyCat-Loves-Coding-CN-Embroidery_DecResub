@@ -37,14 +37,9 @@ body {
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
   background: 
-    /* url('https://res.cloudinary.com/dqj8itdfg/image/upload/v1658042158/flower_black_bkg_iiblmo.jpg') */
+    url('https://res.cloudinary.com/dqj8itdfg/image/upload/v1658042158/flower_black_bkg_iiblmo.jpg')
     no-repeat center center fixed
   ;
-  background: linear-gradient(
-    rgba(0, 0, 0, .5),
-    rgba(0, 0, 0, .5)
-    url('https://res.cloudinary.com/dqj8itdfg/image/upload/v1658042158/flower_black_bkg_iiblmo.jpg')
-  );
 }
 
 .cover-container {
