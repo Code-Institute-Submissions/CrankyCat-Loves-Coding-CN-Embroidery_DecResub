@@ -1,0 +1,26 @@
+[
+    {
+      "pk": 1,
+      "model": "products.category",
+      "fields": {
+        "name": "decoration",
+        "friendly_name": "Decoration"
+      }
+    },
+    {
+      "pk": 2,
+      "model": "products.category",
+      "fields": {
+        "name": "fashion",
+        "friendly_name": "Fashion"
+      }
+    },
+    {
+      "pk": 3,
+      "model": "products.category",
+      "fields": {
+        "name": "offers",
+        "friendly_name": "Offers"
+      }
+    }
+]
