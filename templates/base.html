@@ -23,6 +23,9 @@
     >
 
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     {% endblock %}
 
     {% block extra_css %}
@@ -58,7 +61,26 @@
 
   <body>
     <header class="container-fluid fixed-top">
-
+      <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+    
+        .logo-font {
+          font-family: 'Pacifico', cursive;
+        }
+    
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+          }
+        }
+      </style>
     </header>
 
     {% if messages %}

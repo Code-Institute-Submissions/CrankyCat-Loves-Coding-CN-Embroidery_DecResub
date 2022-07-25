@@ -1,4 +1,4 @@
-from django.contrib import admin
+"""url path for home page"""
 from django.urls import path
 from . import views
 

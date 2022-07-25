@@ -1,0 +1,111 @@
+<!-- nav bar for the site -->
+<div class="masthead mb-auto">
+    <div class="inner">
+        <!-- logo -->
+        <a class="masthead-brand logo-font" href="{% url 'home' %}">
+            <h3>CNEmbroidery</h3> 
+        </a>
+        <nav class="nav justify-content-center">
+            <!-- My account dropdown -->
+            <div class="nav-item dropdown">
+                <a 
+                    class="nav-link dropdown-toggle" 
+                    href="#" id="myaccount-dropdown" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                >My Account</a>
+
+                <div class="dropdown-menu" aria-labelledby="myaccount-dropdown">
+                    {% if requst.user.is_authenticated %}
+                        {% if requst.user.is_superuser %}
+                        <a class="dropdown-item" href="#">Product Management</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                    {% else %}
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- My account dropdown -->
+
+            <!-- Products dropdown -->
+            <div class="nav-item dropdown">
+                <a 
+                    class="nav-link dropdown-toggle" 
+                    href="#" id="products-dropdown" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                >Products</a>
+
+                <div class="dropdown-menu" aria-labelledby="products-dropdown">
+                    <a class="dropdown-item" href="#">All Products</a>
+                    <a class="dropdown-item" href="#">Decoration</a>
+                    <a class="dropdown-item" href="#">Fashion</a>
+                    <a class="dropdown-item" href="#">Offers</a>
+                    <a class="dropdown-item" href="#">Sort By Sizing</a>
+                    <a class="dropdown-item" href="#">Sort By Price</a>
+                </div>
+            </div>
+            <!-- Products dropdown -->
+
+            <!-- Search dropdown -->
+            <div class="nav-item dropdown">
+                <a 
+                    class="nav-link dropdown-toggle" 
+                    href="#" id="search-dropdown" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="search-dropdown">
+                    <form
+                        method="GET" action=""
+                        class="form-inline mx-5 my-md-2 "
+                    >
+                        <input class="form-control" type="text" placeholder="Size" aria-label="Search">
+                        <button class="btn btn-outline-gray my-2 my-sm-0 border" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Search dropdown -->
+            
+            <!-- Cart dropdown -->
+            <div class="nav-item dropdown">
+                <a
+                    class="
+                        nav-link 
+                        dropdown-toggle
+                        {% if grand_total %}
+                        text-info
+                        font-weight-bold
+                        {% else %}
+                        text-black
+                        {% endif %}
+                    " 
+                    href="#" id="cart-dropdown" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="dropdown-menu text-center" aria-labelledby="cart-dropdown">
+                        <p>
+                            {% if grand_total %}
+                                €{{ grand_total|floatformat:2 }}
+                            {% else %}
+                                €0.00
+                            {% endif %}    
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <!-- Cart dropdown -->
+        </nav>
+    </div>
+</div>
