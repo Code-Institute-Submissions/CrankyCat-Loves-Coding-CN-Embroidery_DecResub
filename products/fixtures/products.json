@@ -1,44 +1,58 @@
 [
-    {
-      "pk": 1,
-      "model": "products.product",
-      "fields": {
-        "sku": "627696823923",
-        "name": "High Quality Plum Blossom Embroidery Silk Scarf",
-        "description": "Chinese traditional embroidery with classical Chinese design. 100% made of high quality silk and handmade by our experience embroider. 100% mulberry silk materiel, size 35*155 cm, handwash with warm water, not suitable for machine wash, suggested natural air-dry.",
-        "price": 53.99,
-        "category": 2,
-        "rating": 4.6,
-        "image_url": "https://res.cloudinary.com/dqj8itdfg/image/upload/v1658530126/CNE/silk-scarf-blue-plumblossom-w35l155_utfd7e.jpg",
-        "image": "silk-scarf-blue-plumblossom-w35l155.jpg"
-      }
-    },
-    {
-      "pk": 2,
-      "model": "products.product",
-      "fields": {
-        "sku": "640805219600",
-        "name": "Sunflower Framed Chinese Embroidery",
-        "description": "Chinese traditional embroidery with classical Chinese design. 100% made of high quality silk and handmade by our experience embroider. Size 80*80cm, wooden framed.",
-        "price": 58.99,
-        "category": 1,
-        "rating": 4.6,
-        "image_url": "https://res.cloudinary.com/dqj8itdfg/image/upload/v1658531650/CNE/sunflower-embroidery-withframe-w80l80_qntabh.jpg",
-        "image": "unflower-embroidery-withframe-w80l80.jpg"
-      }
-    },
-    {
-      "pk": 3,
-      "model": "products.product",
-      "fields": {
-        "sku": "656931399100",
-        "name": "Bird and Persimmon Tree Framed Chinese Embroidery",
-        "description": "Chinese traditional embroidery with classical Chinese design. 100% made of high quality silk and handmade by our experience embroider. Size 88*180cm, wooden framed.",
-        "price": 205.99,
-        "category": 3,
-        "rating": 4.7,
-        "image_url": "https://res.cloudinary.com/dqj8itdfg/image/upload/v1658533083/CNE/bird-persimmon-framed-w88l180_hbpqzk.jpg",
-        "image": "bird-persimmon-framed-w88l180.jpg"
-      }
+  {
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "sku": "627696823923",
+      "name": "High Quality Plum Blossom Embroidery Silk Scarf",
+      "description": "Chinese traditional embroidery with classical Chinese design. 100% made of high quality silk and handmade by our experience embroider. 100% mulberry silk materiel, size 35*155 cm, handwash with warm water, not suitable for machine wash, suggested natural air-dry.",
+      "price": 53.99,
+      "category": 2,
+      "rating": 4.6,
+      "image_url": "https://res.cloudinary.com/dqj8itdfg/image/upload/v1658530126/CNE/silk-scarf-blue-plumblossom-w35l155_utfd7e.jpg",
+      "image": "silk-scarf-blue-plumblossom-w35l155.jpg"
     }
+  },
+  {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "sku": "640805219600",
+      "name": "Sunflower Framed Chinese Embroidery",
+      "description": "Chinese traditional embroidery with classical Chinese design. 100% made of high quality silk and handmade by our experience embroider. Size 80*80cm, wooden framed.",
+      "price": 58.99,
+      "category": 1,
+      "rating": 4.6,
+      "image_url": "https://res.cloudinary.com/dqj8itdfg/image/upload/v1658531650/CNE/sunflower-embroidery-withframe-w80l80_qntabh.jpg",
+      "image": "sunflower-embroidery-withframe-w80l80.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "sku": "656931399100",
+      "name": "Bird and Persimmon Tree Framed Chinese Embroidery",
+      "description": "Chinese traditional embroidery with classical Chinese design. 100% made of high quality silk and handmade by our experience embroider. Size 88*180cm, wooden framed.",
+      "price": 205.99,
+      "category": 3,
+      "rating": 4.7,
+      "image_url": "https://res.cloudinary.com/dqj8itdfg/image/upload/v1658533083/CNE/bird-persimmon-framed-w88l180_hbpqzk.jpg",
+      "image": "bird-persimmon-framed-w88l180.jpg"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "sku": "656931399100",
+      "name": "Bird and Persimmon Tree Framed Chinese Embroidery",
+      "description": "Chinese traditional embroidery with classical Chinese design. 100% made of high quality silk and handmade by our experience embroider. Size 88*180cm, wooden framed.",
+      "price": 205.99,
+      "category": 3,
+      "rating": 4.7,
+      "image_url": "https://res.cloudinary.com/dqj8itdfg/image/upload/v1658533083/CNE/bird-persimmon-framed-w88l180_hbpqzk.jpg",
+      "image": "no-image-available.png"
+    }
+  }
 ]
