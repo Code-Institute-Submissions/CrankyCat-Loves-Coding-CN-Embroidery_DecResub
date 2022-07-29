@@ -43,9 +43,9 @@
 
                 <div class="dropdown-menu" aria-labelledby="products-dropdown">
                     <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
-                    <a class="dropdown-item" href="#">Decoration</a>
-                    <a class="dropdown-item" href="#">Fashion</a>
-                    <a class="dropdown-item" href="#">Offers</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=decoration">Decoration</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=fashion">Fashion</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=offers">Offers</a>
                     <a class="dropdown-item" href="#">Sort By Sizing</a>
                     <a class="dropdown-item" href="#">Sort By Price</a>
                 </div>
