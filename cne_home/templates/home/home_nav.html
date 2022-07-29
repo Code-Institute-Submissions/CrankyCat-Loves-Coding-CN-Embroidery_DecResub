@@ -65,10 +65,16 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="search-dropdown">
                     <form
-                        method="GET" action=""
+                        method="GET" action="{% url 'products' %}"
                         class="form-inline mx-5 my-md-2 "
                     >
-                        <input class="form-control" type="text" placeholder="Size" aria-label="Search">
+                        <input 
+                            class="form-control"
+                            type="text"
+                            name="q"
+                            placeholder="Size"
+                            aria-label="Search"
+                        >
                         <button class="btn btn-outline-gray my-2 my-sm-0 border" type="submit">Search</button>
                     </form>
                 </div>
