@@ -29,7 +29,14 @@
                   <p class="card-text text-secondary">{{ product.name }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">€ {{ product.price }}</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Size {{ product.size }}</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <a 
+                          href="{% url 'product_detail' product.id %}"
+                          class="text-secondary"
+                        >Details</a>
+                      </button>
                       <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
                     </div>
                   </div>
