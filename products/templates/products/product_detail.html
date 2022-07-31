@@ -28,10 +28,18 @@
     </div>
 
     <div class="card text-center text-white bg-transparent my-3">
-      <div class="card-header">Price € {{ product.price }}</div>
+      <div class="card-header"></div>
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">Size {{ product.size }}</p>
+        <p class="card-text">
+          {% if product.category %}
+            <a href="{% url 'products' %}?category={{ product.category.name }}">
+              {{ product.category.friendly_name }} | 
+            </a>
+          {% endif %}
+          Size {{ product.size }} | 
+          Price € {{ product.price }}
+        </p>
         <p class="card-text">{{ product.description }}</p>
         <a href="#" class="btn btn-primary mt-3">Add To Cart</a>
       </div>

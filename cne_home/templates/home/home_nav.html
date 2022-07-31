@@ -46,8 +46,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?category=decoration">Decoration</a>
                     <a class="dropdown-item" href="{% url 'products' %}?category=fashion">Fashion</a>
                     <a class="dropdown-item" href="{% url 'products' %}?category=offers">Offers</a>
-                    <a class="dropdown-item" href="{% url 'products' %}?sort=size&direction=asc">Sort By Size</a>
-                    <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Sort By Price</a>
+
                 </div>
             </div>
             <!-- Products dropdown -->
@@ -60,23 +59,40 @@
                     data-toggle="dropdown" 
                     aria-haspopup="true" 
                     aria-expanded="false"
+                    data-display="static"
                 >
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="search-dropdown">
+                <div 
+                    class="
+                        dropdown-menu 
+                        dropdown-menu-right 
+                        dropdown-menu{-sm|-md}-left
+                    " 
+                    aria-labelledby="search-dropdown"
+                >
                     <form
                         method="GET" action="{% url 'products' %}"
-                        class="form-inline mx-5 my-md-2 "
+                        class="form-inline m-3"
                     >
                         <input 
-                            class="form-control"
+                            class="form-control col-9"
                             type="text"
                             name="q"
-                            placeholder="Size"
+                            placeholder="Decoration"
                             aria-label="Search"
                         >
-                        <button class="btn btn-outline-gray my-2 my-sm-0 border" type="submit">Search</button>
+                        <button class="btn btn-outline-gray my-2 my-sm-0 border" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </form>
+                    
+                    <a class="dropdown-item" href="{% url 'products' %}?sort=size&direction=asc">
+                        Sort By Size (Small to Big)
+                    </a>
+                    <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">
+                        Sort By Price (Low to High)
+                    </a>
                 </div>
             </div>
             <!-- Search dropdown -->
@@ -94,20 +110,29 @@
                         text-black
                         {% endif %}
                     " 
-                    href="#" id="cart-dropdown" 
+                    href="" id="cart-dropdown" 
                     data-toggle="dropdown" 
                     aria-haspopup="true" 
                     aria-expanded="false"
                 >
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="dropdown-menu text-center" aria-labelledby="cart-dropdown">
-                        <p>
+                    <div 
+                        class="
+                            dropdown-menu 
+                            text-center
+                            dropdown-menu-right 
+                            dropdown-menu{-sm|-md}-left
+                        " 
+                        aria-labelledby="cart-dropdown"
+                    >
+                        <p class="dropdown-item">
                             {% if grand_total %}
                                 €{{ grand_total|floatformat:2 }}
                             {% else %}
-                                €0.00
+                                Total amount: €0.00
                             {% endif %}    
                         </p>
+                        <a class="dropdown-item" href="{% url 'view_bag' %}">View Cart</a>
                     </div>
                 </a>
             </div>

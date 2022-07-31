@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cne_home',
     'products',
+    'bag',
 ]
 
 MIDDLEWARE = [

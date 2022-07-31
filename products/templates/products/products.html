@@ -16,21 +16,28 @@
               {% for product in products %}
               <div class="card mb-4 shadow-sm">
                 {% if product.image %}
-                <a href="{% url 'product_detail' product.id %}">
-                  <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
+                  <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                  </a>
                 {% else %}
-                <a href="{% url 'product_detail' product.id %}">
-                  <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image-available.png" alt="{{ product.name }}">
-                </a>
+                  <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image-available.png" alt="{{ product.name }}">
+                  </a>
                 {% endif %}
 
                 <div class="card-body">
-                  <p class="card-text text-secondary">{{ product.name }}</p>
+                  <h5 class="card-text text-secondary">{{ product.name }}</h5>
+                  <p class="card-text text-secondary">
+                    {% if product.category %}
+                      <a class="text-secondary" href="{% url 'products' %}?category={{ product.category.name }}">
+                        {{ product.category.friendly_name }} |
+                      </a>
+                    {% endif %}
+                    Size {{ product.size }} |
+                    € {{ product.price }}
+                  </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">€ {{ product.price }}</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Size {{ product.size }}</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary">
                         <a 
                           href="{% url 'product_detail' product.id %}"
