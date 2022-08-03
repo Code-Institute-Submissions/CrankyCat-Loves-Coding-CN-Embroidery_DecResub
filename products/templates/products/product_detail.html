@@ -41,7 +41,9 @@
           Price € {{ product.price }}
         </p>
         <p class="card-text">{{ product.description }}</p>
-        <a href="#" class="btn btn-primary mt-3">Add To Cart</a>
+
+        {% include 'bag/add_to_cart.html' %}
+
       </div>
     </div>
 
