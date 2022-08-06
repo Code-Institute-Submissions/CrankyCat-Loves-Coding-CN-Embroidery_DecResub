@@ -11,6 +11,7 @@
         Add To Cart
     </button>
 
+
     <!-- Quantity Modal -->
     <div 
         class="modal fade" id="addtocart" 
@@ -21,7 +22,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-secondary" id="addtocartLabel">
-                        Maximum order quantity per order are 2 units
+                        Please enter order quantity:
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -29,6 +30,7 @@
                 </div>
                 <div class="modal-body text-secondary">
                     <p>Quantity:</p>
+
                     <input 
                         type="number" name="quantity" 
                         value="1" min="1" max="2" 
@@ -36,6 +38,7 @@
                         id="id_qty_{{ product_id }}"
                         class="col-4 text-center"
                     >
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
