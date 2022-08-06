@@ -21,13 +21,10 @@
                     <!-- bag items -->
                     {% if bag_items %}
                         <!-- bag with items -->
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <li class="table-light d-flex justify-content-between lh-condensed">
                             <div>
-                                <h6 class="my-2 text-secondary">Product name</h6>
-                                <small class="text-muted">Brief description</small>
-                                <p class="text-secondary">{{ bag_items }}</p>
+                                {% include 'bag/bag_items.html' %}
                             </div>
-                            <span class="text-muted">$12</span>
                         </li>
                     {% else %}
                         <!-- bag without items -->
@@ -59,14 +56,14 @@
                                 Free delivery on orders over € {{ free_delivery_threshold }}
                             </small>
                         </div>
-                        <span class="text-muted">$12</span>
+                        <span class="text-muted">€ {{ delivery|floatformat:2 }}</span>
                     </li>
                     <!-- delivery cost --> 
 
                     <!-- cart total --> 
                     <li class="list-group-item d-flex justify-content-between">
                         <span class="text-secondary">Total (EUR):</span>
-                        <strong class="text-secondary">$20</strong>
+                        <strong class="text-secondary">{{ total|floatformat:2 }}</strong>
                     </li>
                     <!-- cart total --> 
 
@@ -82,12 +79,21 @@
                 </form>
 
                 <div class="my-3">
+                    
                     <a 
                         class="btn badge-secondary btn-block" 
                         href="{% url 'products' %}"
                     >
                         Continue to shop
                     </a>
+
+                    <a 
+                        class="btn badge-secondary btn-block" 
+                        href="#"
+                    >
+                        Checkout
+                    </a>
+
                 </div>
             </div>
             <!-- bag items and promotion code -->
