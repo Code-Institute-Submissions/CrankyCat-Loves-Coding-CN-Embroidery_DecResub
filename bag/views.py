@@ -23,5 +23,24 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
 
     request.session['bag'] = bag
-    print(request.session['bag'])
+    print(request.session['bag'], "added")
     return redirect(redirect_url)
+
+
+def update_bag(request, item_id):
+    """A view to return the bag contents page"""
+
+    quantity = int(request.POST.get('quantity'))
+    bag = request.session.get('bag', {})
+
+    if item_id in list(bag.keys()):
+        bag[item_id] += quantity
+    else:
+        bag[item_id] = quantity
+
+    item_id.save()
+
+    if item_id.quantity <= 0:
+        item_id.delete()
+
+    return render(request, 'bag/bag.html')

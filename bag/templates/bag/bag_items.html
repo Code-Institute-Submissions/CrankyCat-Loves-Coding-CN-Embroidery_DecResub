@@ -11,7 +11,7 @@
   <table class="table table-hover my-4">
     <thead>
       <tr>
-        <th scope="col">Product Image</th>
+        <th class="hide" scope="col">Product Image</th>
         <th scope="col">Product Name</th>
         <th scope="col">Price</th>
         <th scope="col">Quantity</th>
@@ -22,7 +22,7 @@
     {% for item in bag_items %}
     <tbody>
       <tr>
-        <td>
+        <td class="hide">
           <img class="img-thumbnail" src="{{ item.product.image.url }}">
         </td>
 
@@ -36,6 +36,9 @@
 
         <td>
           <p>{{ item.quantity }}</p>
+          <div>
+            {% include 'bag/adjust_quantity.html' %}
+          </div>
         </td>
 
         <td class="hide">

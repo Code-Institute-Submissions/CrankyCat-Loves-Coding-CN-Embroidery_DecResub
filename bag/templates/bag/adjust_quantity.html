@@ -1,14 +1,19 @@
 <!-- form to submit quantity and add to cart -->
 <form 
-    class="form" 
-    action="{% url 'add_to_bag' product.id %}" 
+    class="form update-form" 
+    action="" 
     method="POST"
 >
 {% csrf_token %}
 
     <!-- Button trigger Quantity modal -->
-    <button type="button" class="btn badge-secondary mt-3" data-toggle="modal" data-target="#addtocart">
-        Add To Cart
+    <button 
+        type="button" 
+        class="btn btn-link text-secondary mt-3 qty-edit" 
+        data-toggle="modal" 
+        data-target="#addtocart"
+    >
+        Edit
     </button>
 
 
@@ -33,20 +38,23 @@
 
                     <input 
                         type="number" name="quantity" 
-                        value="1" min="1" max="99" 
-                        data-item_id="{{ product_id }}"
-                        id="id_qty_{{ product_id }}"
+                        value="{{ item.quantity }}" min="0" max="99" 
+                        data-item_id="{{ item.item_id }}"
+                        id="id_qty_{{ item.item_id }}"
                         class="col-4 text-center"
                     >
 
                 </div>
                 
-                <div class="modal-footer">
+                <div class="modal-footer ">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         <a href="{% url 'products' %}" class="text-secondary">Close</a>
                     </button>
-                    <input type="submit" value="Add to cart" class="btn badge-secondary">
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <a class="update-link btn btn-info text-white">Update</a>
+                    <a 
+                        class="remove-item btn btn-danger text-white"
+                        id="remove_{{ item.item_id }}"
+                    >Remove</a>
                 </div>
             </div>
         </div>

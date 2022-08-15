@@ -8,7 +8,7 @@
 
         {% include 'home/home_nav.html' %}
 
-        <div class="row">
+        <div class="row mt-4">
             <!-- bag items and promotion code -->
             <div class="col-md-12 order-md-2 mb-4">
                 
@@ -104,5 +104,18 @@
 
     </div>
 </body>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'bag/includes/adjust_quantity_script.html' %}
+
+<script type="text/javascript">
+    $('.update-link').click(function(e){
+        var form = $(this).prev('.update-form');
+        form.submit();
+    });
+</script>
 
 {% endblock %}
