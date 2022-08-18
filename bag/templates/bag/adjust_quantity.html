@@ -1,7 +1,7 @@
-<!-- form to submit quantity and add to cart -->
+<!-- form to adjust quantity in the cart -->
 <form 
     class="form update-form" 
-    action="" 
+    action="{% url 'adjust_bag' item.item_id %}" 
     method="POST"
 >
 {% csrf_token %}
@@ -50,7 +50,13 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         <a href="{% url 'products' %}" class="text-secondary">Close</a>
                     </button>
-                    <a class="update-link btn btn-info text-white">Update</a>
+                    <input type="submit" class="update-link btn btn-info text-white" value="Update">
+                    <!-- <input 
+                        type="submit" 
+                        class="remove-item btn btn-danger text-white" 
+                        id="remove_{{ item.item_id }}"
+                        value="Remove"
+                    > -->
                     <a 
                         class="remove-item btn btn-danger text-white"
                         id="remove_{{ item.item_id }}"

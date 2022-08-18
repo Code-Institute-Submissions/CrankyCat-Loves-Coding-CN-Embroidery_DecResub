@@ -112,10 +112,20 @@
 {% include 'bag/includes/adjust_quantity_script.html' %}
 
 <script type="text/javascript">
-    $('.update-link').click(function(e){
-        var form = $(this).prev('.update-form');
-        form.submit();
+
+    //remove item and reload on click
+    $('.remove-item').click(function(e){
+        var csrftoken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = '/bag/remove/${itemId}/';
+        var data = {'csrfmiddlewaretoken': csrftoken};
+
+        $.post(url, data)
+         .done(function() {
+            location.reload();
+        });
     });
+    
 </script>
 
 {% endblock %}
