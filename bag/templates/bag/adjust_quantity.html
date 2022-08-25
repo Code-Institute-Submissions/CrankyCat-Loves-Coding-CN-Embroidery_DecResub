@@ -51,19 +51,21 @@
                         <a href="{% url 'products' %}" class="text-secondary">Close</a>
                     </button>
                     <input type="submit" class="update-link btn btn-info text-white" value="Update">
-                    <!-- <input 
+                    <input 
                         type="submit" 
                         class="remove-item btn btn-danger text-white" 
                         id="remove_{{ item.item_id }}"
                         value="Remove"
-                    > -->
-                    <a 
+                    >
+                    <!-- <a 
                         class="remove-item btn btn-danger text-white"
                         id="remove_{{ item.item_id }}"
-                    >Remove</a>
+                    >Remove</a> -->
                 </div>
             </div>
         </div>
     </div>
 
 </form>
+
+{% include 'bag/includes/adjust_quantity_script.html' %}

@@ -6,6 +6,7 @@
   }
 </style>
 {% endblock %}
+{% load bag_tools %}
 
 <div class="table-responsive-sm">
   <table class="table table-hover my-4">
@@ -42,7 +43,7 @@
         </td>
 
         <td class="hide">
-          <p>{{ item.product.price }}</p>
+          <p>{{ item.product.price | calc_subtotal:item.quantity }}</p>
         </td>
 
       </tr>
