@@ -19,7 +19,6 @@ a:hover {
   border: .05rem solid #fff;
 }
 
-
 /*
  * Base structure
  */
@@ -39,6 +38,22 @@ body {
 
 .cover-container {
   max-width: 42em;
+}
+
+/*
+ * toast
+ */
+
+/* .toast-position {
+  min-height: 200px;
+} */
+
+.toast-capper {
+  height: 2px;
+}
+
+.toast {
+  width: 100vw;
 }
 
 /*
