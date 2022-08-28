@@ -7,14 +7,6 @@
 {% csrf_token %}
     
     <!-- Button trigger Quantity modal -->
-    <button 
-        type="button" 
-        class="btn btn-link text-secondary mt-3 qty-edit" 
-        data-toggle="modal" 
-        data-target="#addtocart"
-    >
-        Edit
-    </button>
     <input 
         type="submit" 
         class="remove-item btn btn-sm btn-danger text-white" 
@@ -25,14 +17,14 @@
     <!-- Quantity Modal -->
     
     <div 
-        class="modal fade" id="addtocart" 
+        class="modal fade" id="id_qty_{{ item.item_id }}" 
         tabindex="-1" role="dialog" 
-        aria-labelledby="addtocartLabel" aria-hidden="true"
+        aria-labelledby="adjustcartLabel" aria-hidden="true"
     >
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-secondary" id="addtocartLabel">
+                    <h5 class="modal-title text-secondary" id="adjustcartLabel">
                         Please enter order quantity:
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

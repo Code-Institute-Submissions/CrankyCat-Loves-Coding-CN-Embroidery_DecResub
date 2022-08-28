@@ -36,7 +36,14 @@
         </td>
 
         <td>
-          <p>{{ item.quantity }}</p>
+          <button 
+            type="button" 
+            class="btn btn-link text-secondary mt-3 qty-edit" 
+            data-toggle="modal" 
+            data-target="#id_qty_{{ item.item_id }}"
+          >
+            {{ item.quantity }}
+          </button>
           <div>
             {% include 'bag/adjust_quantity.html' %}
           </div>
