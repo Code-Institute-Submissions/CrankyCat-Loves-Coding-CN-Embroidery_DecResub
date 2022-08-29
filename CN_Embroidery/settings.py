@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cne_home',
     'products',
     'bag',
+    'checkout',
 ]
 
 MIDDLEWARE = [
