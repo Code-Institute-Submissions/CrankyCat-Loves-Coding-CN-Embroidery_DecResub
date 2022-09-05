@@ -64,3 +64,27 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+.icon-danger {
+    color:red
+}
+
+/*
+ * checkout success 
+ * order sumarry
+ */
+.bg-black {
+    background: #000000;
+}
+
+.icon {
+    color: #ffff;
+}
+
+.btn-link {
+    color: #f4ec91;
+}
+
+.btn-link:hover {
+    color: #f4ec91;
+}

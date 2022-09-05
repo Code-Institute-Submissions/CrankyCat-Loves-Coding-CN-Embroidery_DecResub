@@ -24,11 +24,221 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12 order-md-1">
-                
+
+            <div class="accordion col-md-12" id="accordionExample">
+                <!-- Order information -->
+                <div class="card bg-black">
+                    <div class="card-header" id="headingOne">
+
+                        <button class="btn btn-link col-md-12 d-flex justify-content-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span class="icon mr-2">
+                                <i class="fa-regular fa-hand-pointer"></i>
+                            </span>
+                            <h4 class="text-white">Order information:</h4>
+                        </button>
+
+                    </div>
+              
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                    <div>
+                                        <h6 class="my-0">Order Number</h6>
+                                    </div>
+                                    <span>{{ order.order_number }}</span>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                    <div>
+                                        <h6 class="my-0">Order Date</h6>
+                                    </div>
+                                    <span>{{ order.date }}</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivering information -->
+                <div class="card bg-black">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span class="icon mr-2">
+                                    <i class="fa-regular fa-hand-pointer"></i>
+                                </span>
+                                <h4 class="text-white">Delivering To:</h4>
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <ul class="list-group mb-3">
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">Full Name</h6>
+                                        </div>
+                                        <span>{{ order.full_name }}</span>
+                                    </li>
+        
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">Address 1</h6>
+                                        </div>
+                                        <span>{{ order.street_address1 }}</span>
+                                    </li>
+    
+                                    {% if order.street_address2 %}
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">Address 2</h6>
+                                        </div>
+                                        <span>{{ order.street_address2 }}</span>
+                                    </li>
+                                    {% endif %}
+    
+                                    {% if order.county %}
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">County</h6>
+                                        </div>
+                                        <span>{{ order.county }}</span>
+                                    </li>
+                                    {% endif %}
+    
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">Town or City</h6>
+                                        </div>
+                                        <span>{{ order.town_or_city }}</span>
+                                    </li>
+    
+                                    {% if order.postcode %}
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">Postal Code</h6>
+                                        </div>
+                                        <span>{{ order.postcode }}</span>
+                                    </li>
+                                    {% endif %}
+    
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">Country</h6>
+                                        </div>
+                                        <span>{{ order.country }}</span>
+                                    </li>
+        
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                        <div>
+                                            <h6 class="my-0">Phone Number</h6>
+                                        </div>
+                                        <span>{{ order.phone_number }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order details -->
+                <div class="card bg-black">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <span class="icon mr-2">
+                                <i class="fa-regular fa-hand-pointer"></i>
+                            </span>
+                            <h4 class="text-white">Order Details:</h4>
+                        </button>
+                    </h2>
+                  </div>
+
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        {% for item in order.lineitems.all %}
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                <div class="col-md-6">
+                                    <img class="img-thumbnail" src="{{ item.product.image.url }}">
+                                    <small class="my-0 text-left">{{ item.product.name }}</small>
+                                </div>
+                                <span>{{ item.quantity }} @ €{{ item.product.price }} each</span>
+                            </li>
+                        </ul>
+                        {% endfor %}                 
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Billing information -->
+                <div class="card bg-black">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                        <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <span class="icon mr-2">
+                                <i class="fa-regular fa-hand-pointer"></i>
+                            </span>
+                            <h4 class="text-white">Billing Info:</h4>
+                        </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                    <div class="col-md-6">
+                                        <h6 class="my-0 text-left">Order Total</h6>
+                                    </div>
+                                    <span>€{{ order.order_total }}</span>
+                                </li>
+    
+                                <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                    <div class="col-md-6">
+                                        <h6 class="my-0 text-left">Delivery</h6>
+                                    </div>
+                                    <span>€{{ order.delivery_cost }}</span>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                    <div class="col-md-6">
+                                        <h6 class="my-0 text-left">Grand Total</h6>
+                                    </div>
+                                    <span>€{{ order.grand_total }}</span>
+                                </li>
+    
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <!-- render order summary  -->
+
+        <div class="row">
+			<div class="col-12 col-lg-7 text-right mb-4">
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-angle-left"></i>
+                        </span>
+                        <span class="text-uppercase text-white">Back to Profile</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'products' %}?category=offers" class="btn btn-black rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-gifts"></i>
+                        </span>
+                        <span class="text-uppercase text-white">Now check out the latest deals!</span>
+                    </a>
+                {% endif %}
+			</div>
+		</div>
         
         {% include 'home/home_footer.html' %}
 
