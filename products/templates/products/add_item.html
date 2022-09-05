@@ -7,11 +7,23 @@
 {% csrf_token %}
 
     <!-- Button trigger Quantity modal -->
-    <button type="button" class="btn badge-secondary mt-3" data-toggle="modal" data-target="#addtocart">
+    <button 
+        type="button" 
+        class="
+        btn
+        {% if product%}
+        btn-sm btn-outline-secondary
+        {% else %}
+        badge-secondary mt-3
+        {% endif %}
+        " 
+        data-toggle="modal"
+        data-target="#addtocart"
+    >
         Add To Cart
     </button>
 
-
+ 
     <!-- Quantity Modal -->
     <div 
         class="modal fade" id="addtocart" 
