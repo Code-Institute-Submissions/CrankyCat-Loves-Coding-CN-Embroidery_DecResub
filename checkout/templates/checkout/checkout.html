@@ -13,7 +13,7 @@
 
         {% include 'home/home_nav.html' %}
 
-        <!-- form to collect delivery details -->
+        <!-- form to collect delivery and payment details -->
         <div class="container">
             <div class="py-5 text-center">
                 <h2>Checkout</h2>
@@ -25,61 +25,70 @@
 
         <div class="row">
             <div class="col-md-12 order-md-1">
-                <h4 class="mb-3">Billing address</h4>
+                
                 <form 
                     action="{% url 'checkout' %}" 
                     method="POST"
                     id="payment-form"
-                    class="mb-4" novalidate
+                    class="mb-4"
                 >
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            {{ order_form.full_name | as_crispy_field }}
+
+                    <fieldset>
+                        <legend>
+                            <h4 class="mb-3">Billing address</h4>
+                        </legend>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ order_form.full_name | as_crispy_field }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ order_form.phone_number | as_crispy_field }}
+                            </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            {{ order_form.phone_number | as_crispy_field }}
+            
+                        <div class="mb-3">
+                            {{ order_form.email | as_crispy_field }}
                         </div>
-                    </div>
-        
-                    <div class="mb-3">
-                        {{ order_form.email | as_crispy_field }}
-                    </div>
-            
-                    <div class="mb-3">
-                        {{ order_form.street_address1 | as_crispy_field }}
-                    </div>
-            
-                    <div class="mb-3">
-                        {{ order_form.street_address2 | as_crispy_field }}
-                    </div>
-            
-                    <div class="mb-3">
-                        {{ order_form.town_or_city | as_crispy_field }}
-                    </div>
-            
-                    <div class="row">
-                        <div class="col-md-5 mb-3">
-                            {{ order_form.county | as_crispy_field }}
+                
+                        <div class="mb-3">
+                            {{ order_form.street_address1 | as_crispy_field }}
+                        </div>
+                
+                        <div class="mb-3">
+                            {{ order_form.street_address2 | as_crispy_field }}
+                        </div>
+                
+                        <div class="mb-3">
+                            {{ order_form.town_or_city | as_crispy_field }}
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-md-5 mb-3">
+                                {{ order_form.county | as_crispy_field }}
+                            </div>
+    
+                            <div class="col-md-4 mb-3">
+                                {{ order_form.postcode | as_crispy_field }}
+                            </div>
+    
+                            <div class="col-md-3 mb-3">
+                                {{ order_form.country | as_crispy_field }}
+                            </div>
                         </div>
 
-                        <div class="col-md-4 mb-3">
-                            {{ order_form.postcode | as_crispy_field }}
-                        </div>
+                    </fieldset>
 
-                        <div class="col-md-3 mb-3">
-                            {{ order_form.country | as_crispy_field }}
-                        </div>
-                    </div>
                     
                     {% if user.is_authenticated %}
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="save-info">
-                            <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                            <input type="checkbox" class="form-check-input" id="id-save-info" name="save-info" checked>
+                            <label class="form-check-label" for="id-save-info">Save this information for next time</label>
                         </div>
                     {% else %}
                         <div class="custom-control custom-checkbox">
-                            <label class="custom-control-label" for="save-info">
+                            <label class="form-check-label" for="id-save-info">
                                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
                                 <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                             </label>
@@ -102,7 +111,7 @@
 
                     </fieldset>
 
-                    <div class="submit-button text-right mt-5 mb-2">
+                    <fieldset class="submit-button text-right mt-5 mb-2">
 						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0 text-white">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
@@ -119,14 +128,14 @@
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+							<span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
 						</p>
-					</div>
+					</fieldset>
 
                 </form>
             </div>
         </div>
-        <!-- form to collect delivery details -->
+        <!-- form to collect delivery and payment details -->
         
         {% include 'home/home_footer.html' %}
 

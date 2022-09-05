@@ -1,0 +1,39 @@
+<!-- page for successful checkout info -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        {% include 'home/home_nav.html' %}
+
+        <!-- render order summary -->
+        <div class="container">
+            <div class="py-5 text-center">
+                <h2>Thank you</h2>
+                <p class="lead">
+                    Your order is now completed. 
+                    A confirmation email will be sent to <strong>{{ order.email }}</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 order-md-1">
+                
+            </div>
+        </div>
+        <!-- render order summary  -->
+        
+        {% include 'home/home_footer.html' %}
+
+    </div>
+</body>
+
+{% endblock %}
+
