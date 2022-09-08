@@ -60,16 +60,17 @@ def adjust_bag(request, item_id):
 def remove_from_bag(request, item_id):
     """Remove items the bag"""
 
-    if 'removeitem' in request.POST:
-        remove = request.POST['removeitem']
-
     try:
         product = get_object_or_404(Product, pk=item_id)
+        # bag = request.session.get('bag', {})
+        # if remove:
+        #     bag.pop(item_id)
+        #     messages.success(request, f'Removed {product.name} from your bag')
         bag = request.session.get('bag', {})
-        if remove:
+        if product:
             bag.pop(item_id)
             messages.success(request, f'Removed {product.name} from your bag')
-
+            
         request.session['bag'] = bag
         return HttpResponse(status=200)
     except Exception as e:
