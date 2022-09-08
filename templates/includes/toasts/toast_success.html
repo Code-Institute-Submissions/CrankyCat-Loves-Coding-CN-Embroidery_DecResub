@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      {% if grand_total %}
+      {% if grand_total and not on_profile_page %}
       <a class="btn btn-outline-success btn-sm btn-block" href="{% url 'view_bag' %}">Your Bag ({{ product_count }})</a>
       <div class="bag-notification-wrapper">
         {% for item in bag_items %}
