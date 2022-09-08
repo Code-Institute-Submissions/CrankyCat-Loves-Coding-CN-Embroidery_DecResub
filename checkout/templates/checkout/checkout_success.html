@@ -161,15 +161,15 @@
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
                         {% for item in order.lineitems.all %}
-                        <ul class="list-group mb-3">
-                            <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
-                                <div class="col-md-6">
-                                    <img class="img-thumbnail" src="{{ item.product.image.url }}">
-                                    <small class="my-0 text-left">{{ item.product.name }}</small>
-                                </div>
-                                <span>{{ item.quantity }} @ €{{ item.product.price }} each</span>
-                            </li>
-                        </ul>
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
+                                    <div class="col-md-6">
+                                        <img class="img-thumbnail" src="{{ item.product.image.url }}">
+                                        <small class="my-0 text-left">{{ item.product.name }}</small>
+                                    </div>
+                                    <span>{{ item.quantity }} @ €{{ item.product.price }} each</span>
+                                </li>
+                            </ul>
                         {% endfor %}                 
                     </div>
                   </div>
