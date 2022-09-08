@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        {% include 'home/home_nav.html' %}
+
+        <!-- form to collect delivery and payment details -->
+        <div class="container">
+            <div class="py-5 text-center">
+                <h2>My Profile</h2>
+                <p class="lead">
+                    Please fill out the form below to complete your order
+                </p>
+            </div>
+        </div>
+        
+        {% include 'home/home_footer.html' %}
+
+    </div>
+</body>
+
+{% endblock %}
+
