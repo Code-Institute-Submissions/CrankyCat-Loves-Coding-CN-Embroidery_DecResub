@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        {% include 'home/home_nav.html' %}
+
+        <div class="row">
+            <div class="col-12">
+                <hr>
+                <h4 >Product Management</h4>
+                <h5 class="text-muted">Edit a Product</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right mb-5">
+
+                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 text-white">
+							<span class="icon mr-2">
+								<i class="fa-solid fa-xmark"></i>
+							</span>
+							<span class="font-weight-bold">Cancel</span>
+						</a>
+
+						<button class="btn btn-black rounded-0 text-white">
+							<span class="font-weight-bold">Update Product</span>
+							<span class="icon ml-2">
+								<i class="fa-solid fa-plus"></i>
+							</span>
+						</button>
+
+                    </div>
+                </form>
+            </div>            
+        </div>
+
+        {% include 'home/home_footer.html' %}
+
+    </div>
+</body>
+
+{% endblock %}
+
