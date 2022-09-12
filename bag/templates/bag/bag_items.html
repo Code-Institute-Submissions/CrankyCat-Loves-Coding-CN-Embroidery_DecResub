@@ -25,7 +25,11 @@
     <tbody>
       <tr>
         <td class="hide">
-          <img class="img-thumbnail" src="{{ item.product.image.url }}">
+          {% if item.product.image %}
+            <img class="img-thumbnail" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+          {% else %}
+            <img class="img-thumbnail" src="{{ MEDIA_URL }}no-image-available.png" alt="{{ item.product.name }}">
+          {% endif %}
         </td>
 
         <td>
