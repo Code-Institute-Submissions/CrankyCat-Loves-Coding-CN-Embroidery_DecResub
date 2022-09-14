@@ -1,1 +1,1 @@
-web: gunicorn cn_embroidery.wsgi:application
+web: gunicorn CN_Embroidery.wsgi:application
