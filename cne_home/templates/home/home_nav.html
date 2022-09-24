@@ -75,6 +75,7 @@
                         method="GET" action="{% url 'products' %}"
                         class="form-inline m-3"
                     >
+                        {% csrf_token %}
                         <input 
                             class="form-control col-9"
                             type="text"
