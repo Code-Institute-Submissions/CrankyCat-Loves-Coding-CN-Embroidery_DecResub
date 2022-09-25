@@ -10,3 +10,9 @@ class CouponAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Coupon, CouponAdmin)
+
+# class CouponAdmin(admin.ModelAdmin):
+#     '''register coupon app to admin site'''
+
+# admin.site.register(Coupon, CouponAdmin)
+

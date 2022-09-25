@@ -1,16 +1,39 @@
 """shopping bag view"""
+from decimal import Decimal
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from products.models import Product
-
-# Create your views here.
+from coupons.models import Coupon
+from coupons.forms import CouponApplyForm
 
 
 def view_bag(request):
     """A view to return the bag contents page"""
 
-    return render(request, 'bag/bag.html')
+
+    @property
+    def coupon(self):
+        """get coupon id from session"""
+
+        self.session = request.session
+        self.coupon_id = self.session.get('coupon_id')
+
+        if self.coupon_id:
+            return Coupon.objects.get(id=self.coupon_id)
+        return None
+
+
+
+        if self.coupon:
+            return (self.coupon.discount / Decimal('100')) * self.total()
+        return Decimal('0')
+
+    coupon_apply_form = CouponApplyForm()
+
+    return render(request, 'bag/bag.html', {
+        'coupon_apply_form': coupon_apply_form
+    })
 
 
 def add_to_bag(request, item_id):
@@ -60,18 +83,6 @@ def adjust_bag(request, item_id):
 def remove_from_bag(request, item_id):
     """Remove items the bag"""
 
-    # try:
-        # product = get_object_or_404(Product, pk=item_id)
-        # bag = request.session.get('bag', {})
-        # if remove:
-        #     bag.pop(item_id)
-        #     messages.success(request, f'Removed {product.name} from your bag')
-        # bag = request.session.get('bag', {})
-        # if product:
-        #     bag.pop(item_id)
-        #     messages.success(request, f'Removed {product.name} from your bag')
-            
-        # request.session['bag'] = bag
     try:
         product = get_object_or_404(Product, pk=item_id)
         bag = request.session.get('bag', {})
