@@ -40,6 +40,9 @@ body {
   max-width: 42em;
 
 }
+.line-space {
+  line-height: 30px;
+}
 
 /*
  * toast
