@@ -1,108 +1,151 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# [**CNEbroidery**](https://https://cnembroidery.herokuapp.com/)
 
-Welcome CrankyCat-Loves-Coding,
+![Portfolio image](images/main-picture.jpg)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## **Overview**
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+This is a Rock Paper Scissors game, created using Python language. It’s a fairly common game around the world. Basically, the computer randomly chooses Rock, Paper or Scissors and the player plays against to the computer. There are two possible outcomes: a draw, or a win for one player and a loss for the other. The rules are Rock beats Scissors, Paper beats Rock and Scissors beats Paper. The computer shows a partial picture each time the player wins. A full picture is displayed after 3 wins.
 
-## Gitpod Reminders
+## **Table of Contents**
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- [**Rock-Paper-Scissors**](#overview)
+  - [**Overview**](#overview)
+  - [**Table of Contents**](#table-of-contents)
+    - [**1. What Is It?**](#1-what-is-it)
+    - [**2. How to Achieve?**](#2-how-to-achieve)
+    - [**3. Testing and Launch**](#3-testing-and-launch)
+    - [**4. Deployment**](#4-deployment)
+    - [**5. Support**](#5-support)
+    - [**6. Reference and Research**](#6-reference-and-research)
 
-`python3 -m http.server`
+### **1. What Is It?**
 
-A blue button should appear to click: _Make Public_,
+- The game of Rock Paper Scissors
+[Details described on Wiki](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 
-Another blue button should appear to click: _Open Browser_.
+Rock paper scissors (also known by other orderings of the three items, with "rock" sometimes being called "stone", or as Rochambeau, roshambo, or ro-sham-bo) is a hand game, usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). "Scissors" is identical to the two-fingered V sign (also indicating "victory" or "peace") except that it is pointed horizontally instead of being held upright in the air.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+A simultaneous, zero-sum game, it has only two possible outcomes: a draw, or a win for one player and a loss for the other. A player who decides to play rock will beat another player who has chosen scissors ("rock crushes scissors" or sometimes "blunts scissors"), but will lose to one who has played paper ("paper covers rock"); a play of paper will lose to a play of scissors ("scissors cuts paper"). If both players choose the same shape, the game is tied and is usually immediately replayed to break the tie. The type of game originated in China and spread with increased contact with East Asia, while developing different variants in signs over time.
 
-A blue button should appear to click: _Make Public_,
+Rock paper scissors is often used as a fair choosing method between two people, similar to coin flipping, drawing straws, or throwing dice in order to settle a dispute or make an unbiased group decision. Unlike truly random selection methods, however, rock paper scissors can be played with a degree of skill by recognizing and exploiting non-random behavior in opponents.
 
-Another blue button should appear to click: _Open Browser_.
+[Back to the top](#overview)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### **2. How to Achieve?**
 
-To log into the Heroku toolbelt CLI:
+- Features
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+  - **Welcome Page**
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+    RPS refers to Rock Paper Scissors. There is also a welcome message of “Come and Play” with a little cheerful happy face “(^.^)YYa!!”at the bottom. Finally, there is a question of “What is your name?” before starting the game. The game starts once the player enters their name.
 
-------
+    ![Welcome-page](images/welcome-page.jpg)
 
-## Release History
+    Once the player enters their name, the program greets the player and asks if they wish to play or exit the game. The game starts when the player enters a ‘y’and the game terminates if the player enters ‘n’.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- **Program flow chart**
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+    ![Flow Chart](images/flow-chart.jpg)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    Firstly, the program obtains the player’s name and then greets the player.
+    Secondly, the program asks the question “Would you like to play to play?” and takes input from the player to determine if the game continues or stops. If the player enters ‘n’, then the game is terminated. At the same time print out a goodbye message to the player. If the player enters ‘y’, then the game starts.
+    The program displays rules after the input ‘y’ is identified and guides the player to make a move by entering 'r' for Rock, 'p' for Paper or 's' for Scissors.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+    If the player wins, the computer displays a message and a partial image. Once the player has won 3 times, the computer displays a full image. Then the player is asked if they wish to replay the game or exit the game.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- **How to Play**
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+    The computer randomly chooses Rock, Paper or Scissors. The player can enter ‘r’ for Rock, ‘p’ for Paper or ‘s’ for Scissors to play against the computer. A player who decides to play rock will beat another player who has chosen scissors ("rock crushes scissors" or sometimes "blunts scissors"), but will lose to one who has played paper ("paper covers rock"); a play of paper will lose to a play of scissors ("scissors cuts paper"). If both players choose the same shape, the game is tied.
+    If it’s a tie, the computer displays the following message:
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    ![Tie](images/tie.jpg)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+    If the player loses, the computer displays the following message:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+    ![Player loses](images/lost.jpg)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    If the player wins, the computer displays a message and a partial image as below:
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+    ![Player wins](images/win.jpg)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+    Once the player has won 3 time, the computer displays a full image as below:
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+    ![Full image](images/full_image.jpg)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+    Then the player is asked if they wish to replay the game or exit the game.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+[Back to the top](#overview)
 
-------
+### 3. **Testing and Launch**
 
-## FAQ about the uptime script
+- PEP8 validation
 
-**Why have you added this script?**
+  - No errors or warnings were found when passing through the official PEP8 validator.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- Normal testing
+  - The game runs smoothly with normal activities. Obtaining the player's name and capitalized the first letter correctly. Validating the player's input such as 'y' or 'n' for start or exit the game. Showing no issues for corrent moves as 'r', 'p' or 's', also image and message for tie, win or lost displayed accordingly. The game can be exited easily by enter 'n' and goodbye message displayed correctly. More details can be found as per following gif image.
+  - ![testing-normal](images/testing-normal-30sec.gif)
 
-**How will this affect me?**
+- Function start() testing:
+  - A bug was identified when testing on the start() function. There was a chance that a player may enter anything else other than y’ or ‘n. Hence used while…not in…: method to validate input and display a message to require the player to enter only ‘y’ or ‘n’ to start or exit the game. Then the player can exit the game by entering 'n' without any issue.
+  - ![testing-input](images/input-validate.gif)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- Function play() testing:
+  - The same bug fixed in play() function. The computer displays a message to the player if invalid input is identified. For example, the computer will display a message of "enter 'r' for Rock,'p' for Paper,'s' for Scissors" to the player if input identified as 'abc' where it should has been chosen 'r', 'p' or 's'.
+  - ![testing input play function](images/input-validate-play-function.gif)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- Function player_win( ) testing:
+  - The game is designed to allow the player to win 3 times of the game. However, there was a bug where the game ended after the player has won 2 times. It was fixed by updating the n value when called the function. It needed to be 5 other than 3 because of the math.ceiling method. 
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- Goodbye message testing:
+  - The game terminates if the player enters ‘n’  and  Goodbye message displayed as expected.
+  - ![goodbye message](images/goodbye-message.gif)
 
-**So….?**
+- Technology Stack
+  - [Python](https://www.python.org/)
+  - [PEP8](http://pep8online.com/)
+  - [Wiki](https://www.wikipedia.org/)
+  - [Heroku]( https://dashboard.heroku.com/apps)
+  - [Responsive design](http://ami.responsivedesign.is/#)
+  - [giphy](https://giphy.com/)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+[Back to the top](#overview)
 
-**Can I opt out?**
+### 4. **Deployment**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- The game was deployed to [Heroku]( https://dashboard.heroku.com/apps) page. The steps to deploy are as follows:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- In the Heroku page, select ‘Create new app’
+![Heroku](images/Heroku.jpg)
 
-**Anything more?**
+- Create app name and choose a region
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- Navigate to the setting tab. Add Python and node.js buildpacks
+![buildpacks](images/buildpacks.png)
 
----
+- At the deploy section, connect to Github, search and link to Rock-Paper-Scissors repository.
+![buildpacks](images/github.jpg)
 
-Happy coding!
+- Scroll down to set up automatic deploys, it enables Heroku to rebuild the app every time push code to Github.
+
+- The live link can be found here [link]( https://rack-paper-scissors.herokuapp.com/)
+
+[Back to the top](#overview)
+
+### 5. **Support**
+
+- Mentor
+
+  - [Daisy McGirr]( https://www.linkedin.com/in/daisy-mcgirr-4a3671173/)
+  Full Stack Python (Django) Developer at PwC | Operate
+
+  [Back to the top](#overview)
+
+### 6. **Reference and Research**
+
+- Reference
+  - [Kylie Ying](https://www.youtube.com/watch?v=xRlN8CFJwAM&ab_channel=KylieYing)
+
+[Back to the top](#overview)
+
+
