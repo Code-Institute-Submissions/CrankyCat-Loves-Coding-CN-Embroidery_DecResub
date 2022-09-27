@@ -17,6 +17,8 @@
         <div class="container">
             <div class="py-5 text-center">
                 <h2>Checkout</h2>
+                <hr class="mb-4">
+                {% if user.is_authenticated %}
                 <p class="lead">
                     Please fill out the form below to complete your order
                 </p>
@@ -33,84 +35,84 @@
                     class="mb-4"
                 >
                     {% csrf_token %}
-
-                    <fieldset>
-                        <legend>
-                            <h4 class="mb-3">Billing address</h4>
-                        </legend>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                {{ order_form.full_name | as_crispy_field }}
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                {{ order_form.phone_number | as_crispy_field }}
-                            </div>
-                        </div>
-            
-                        <div class="mb-3">
-                            {{ order_form.email | as_crispy_field }}
-                        </div>
-                
-                        <div class="mb-3">
-                            {{ order_form.street_address1 | as_crispy_field }}
-                        </div>
-                
-                        <div class="mb-3">
-                            {{ order_form.street_address2 | as_crispy_field }}
-                        </div>
-                
-                        <div class="mb-3">
-                            {{ order_form.town_or_city | as_crispy_field }}
-                        </div>
-                
-                        <div class="row">
-                            <div class="col-md-5 mb-3">
-                                {{ order_form.county | as_crispy_field }}
-                            </div>
-    
-                            <div class="col-md-4 mb-3">
-                                {{ order_form.postcode | as_crispy_field }}
-                            </div>
-    
-                            <div class="col-md-3 mb-3">
-                                {{ order_form.country | as_crispy_field }}
-                            </div>
-                        </div>
-
-                    </fieldset>
-
                     
-                    {% if user.is_authenticated %}
+                        <fieldset>
+                            <legend>
+                                <h4 class="mb-3">Billing address</h4>
+                            </legend>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ order_form.full_name | as_crispy_field }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ order_form.phone_number | as_crispy_field }}
+                                </div>
+                            </div>
+                
+                            <div class="mb-3">
+                                {{ order_form.email | as_crispy_field }}
+                            </div>
+                    
+                            <div class="mb-3">
+                                {{ order_form.street_address1 | as_crispy_field }}
+                            </div>
+                    
+                            <div class="mb-3">
+                                {{ order_form.street_address2 | as_crispy_field }}
+                            </div>
+                    
+                            <div class="mb-3">
+                                {{ order_form.town_or_city | as_crispy_field }}
+                            </div>
+                    
+                            <div class="row">
+                                <div class="col-md-5 mb-3">
+                                    {{ order_form.county | as_crispy_field }}
+                                </div>
+        
+                                <div class="col-md-4 mb-3">
+                                    {{ order_form.postcode | as_crispy_field }}
+                                </div>
+        
+                                <div class="col-md-3 mb-3">
+                                    {{ order_form.country | as_crispy_field }}
+                                </div>
+                            </div>
+
+                        </fieldset>
+
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="form-check-input" id="id-save-info" name="save-info" checked>
                             <label class="form-check-label" for="id-save-info">Save this information for next time</label>
                         </div>
+
+                        <hr class="mb-4">
+
+                        <fieldset>
+                        
+                            <legend class="fieldset-label small text-black px-2 w-auto"><h4 class="mb-3">Payment</h4></legend>
+                            <!-- A Stripe card element will go here -->
+                            <div class="mb-3" id="card-element"></div>
+    
+                            <!-- Used to display form errors -->
+                            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+    
+                            <!-- Pass the client secret to the view so we can get the payment intent id -->
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
+    
+                        </fieldset>
                     {% else %}
                         <div class="custom-control custom-checkbox">
                             <label class="form-check-label" for="id-save-info">
                                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                <a class="text-info" href="{% url 'account_login' %}">login</a> to continue your purchase.
                             </label>
                         </div>
                     {% endif %}
 
                     <hr class="mb-4">
             
-                    <fieldset>
-                        
-                        <legend class="fieldset-label small text-black px-2 w-auto"><h4 class="mb-3">Payment</h4></legend>
-                        <!-- A Stripe card element will go here -->
-                        <div class="mb-3" id="card-element"></div>
-
-                        <!-- Used to display form errors -->
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-
-                        <!-- Pass the client secret to the view so we can get the payment intent id -->
-                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
-
-                    </fieldset>
-
                     <fieldset class="submit-button text-right mt-5 mb-2">
 						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0 text-white">
 							<span class="icon">

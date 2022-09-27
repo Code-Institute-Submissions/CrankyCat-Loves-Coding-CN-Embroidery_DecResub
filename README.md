@@ -1,14 +1,14 @@
 # [**CNEbroidery**](https://https://cnembroidery.herokuapp.com/)
 
-![Portfolio image](images/main-picture.jpg)
+![Portfolio image](media/home-page.jpg)
 
 ## **Overview**
 
-This is a Rock Paper Scissors game, created using Python language. It’s a fairly common game around the world. Basically, the computer randomly chooses Rock, Paper or Scissors and the player plays against to the computer. There are two possible outcomes: a draw, or a win for one player and a loss for the other. The rules are Rock beats Scissors, Paper beats Rock and Scissors beats Paper. The computer shows a partial picture each time the player wins. A full picture is displayed after 3 wins.
+This is an e-commerce web application complete with product search and filter functionality. A live fully functional payment system. A full-featured authentication system including email confirmations and user profiles. And real-time notifications that guide the user's experience. The website was built in modern software development Such as Stripe, Amazon Web Services, Heroku, and more.
 
 ## **Table of Contents**
 
-- [**Rock-Paper-Scissors**](#overview)
+- [**CNEbroidery**](#overview)
   - [**Overview**](#overview)
   - [**Table of Contents**](#table-of-contents)
     - [**1. What Is It?**](#1-what-is-it)
@@ -20,28 +20,39 @@ This is a Rock Paper Scissors game, created using Python language. It’s a fair
 
 ### **1. What Is It?**
 
-- The game of Rock Paper Scissors
-[Details described on Wiki](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+- CNEbroidery
+[Details of Ebroidery described on Wiki](https://en.wikipedia.org/wiki/Chinese_embroidery)
 
-Rock paper scissors (also known by other orderings of the three items, with "rock" sometimes being called "stone", or as Rochambeau, roshambo, or ro-sham-bo) is a hand game, usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). "Scissors" is identical to the two-fingered V sign (also indicating "victory" or "peace") except that it is pointed horizontally instead of being held upright in the air.
-
-A simultaneous, zero-sum game, it has only two possible outcomes: a draw, or a win for one player and a loss for the other. A player who decides to play rock will beat another player who has chosen scissors ("rock crushes scissors" or sometimes "blunts scissors"), but will lose to one who has played paper ("paper covers rock"); a play of paper will lose to a play of scissors ("scissors cuts paper"). If both players choose the same shape, the game is tied and is usually immediately replayed to break the tie. The type of game originated in China and spread with increased contact with East Asia, while developing different variants in signs over time.
-
-Rock paper scissors is often used as a fair choosing method between two people, similar to coin flipping, drawing straws, or throwing dice in order to settle a dispute or make an unbiased group decision. Unlike truly random selection methods, however, rock paper scissors can be played with a degree of skill by recognizing and exploiting non-random behavior in opponents.
+The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery has been popular in China for thousands of years，most of the Chinese embroideries are made of silk. It is commonly made by hand, especially for very sophisticated design. It's considered as one of best gifts or collections. This website is built to introduct Chinese Ebroidery and sell high quality Chinese Ebroidery. 
 
 [Back to the top](#overview)
 
 ### **2. How to Achieve?**
 
-- Features
+- Home page
 
   - **Welcome Page**
 
-    RPS refers to Rock Paper Scissors. There is also a welcome message of “Come and Play” with a little cheerful happy face “(^.^)YYa!!”at the bottom. Finally, there is a question of “What is your name?” before starting the game. The game starts once the player enters their name.
+  ![Welcome-page](media/home-page-intro.gif)
 
-    ![Welcome-page](images/welcome-page.jpg)
+  - Nav bar
+    - ***CNEbroidery***: clicking website name will be redirected back to the home page.
+    - ***My account***: allowing users to login or sign up.
 
-    Once the player enters their name, the program greets the player and asks if they wish to play or exit the game. The game starts when the player enters a ‘y’and the game terminates if the player enters ‘n’.
+    ![Login and Sign Up](media/login-signup.gif)
+    
+    - ***Products***: users can access product page by clicking 'shop now' button or via nav product link. It contains all products link and individual product categories. There are three categories which are Decoration, Fashion and Offers.
+
+    ![Products-page](media/product-page.gif)
+
+    - ***Search engine and sorting products***: users are able to search from the entire site or sort by product size from small to big or sort by product price from low to high.
+    - ***Cart***: the color of cart icon will change to blue if users have added any items to cart. The total amount of shopping also availiable there. Clicking 'View Cart' will direct our users to cart detail page.
+
+  - Footer
+    - ***Subscribe***: users can enter an email to subscribe monthly newsletter to get exclusive offers and discount codes.
+    - ***Facebook Social Link***: Facebook is used to build a community and deepening relationships with customers to encourage interest and customer loyalty.
+    - ***Privacy Policy***: Privacy Policy to display to make sure that business complies with the law.
+
 
 - **Program flow chart**
 
