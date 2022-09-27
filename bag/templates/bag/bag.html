@@ -38,26 +38,6 @@
                         </li>
                     {% endif %}
                     <!-- bag items end -->
-
-                    <!-- promo code start --> 
-                    <!-- <li class="list-group-item d-flex justify-content-between bg-light">
-                        
-                        <div class="text-success">
-                            <h6 class="my-2 text-left">Promo code</h6>
-                            {% if bag.coupon %} 
-                            <small class="text-muted">
-                                "{{ bag.coupon.code }}" ({{ bag.coupon.discount}}) % off
-                            </small>
-                            <span class="text-secondary">- € {{ bag.get_discount|floatformat:2 }}</span>
-                            {% else %}
-                            <small class="text-muted">
-                                No promotion applied
-                            </small>
-                            {% endif %} 
-                        </div>
-                        
-                    </li> -->
-                    <!-- promo code end -->  
                    
                     <!-- delivery cost start --> 
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -85,17 +65,6 @@
                     <!-- cart total end --> 
            
                 </ul>
-                
-                <form action="{% url 'apply' %}" method="POST" class="card p-2">
-                    
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input type="text" name="coupon" class="form-control my-2" placeholder="Promo code">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                        </div>
-                    </div>
-                </form>
 
                 <div class="submit-button text-right mt-5 mb-2">
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 text-white">

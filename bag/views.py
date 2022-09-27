@@ -4,36 +4,12 @@ from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from products.models import Product
-from coupons.models import Coupon
-from coupons.forms import CouponApplyForm
 
 
 def view_bag(request):
     """A view to return the bag contents page"""
 
-
-    @property
-    def coupon(self):
-        """get coupon id from session"""
-
-        self.session = request.session
-        self.coupon_id = self.session.get('coupon_id')
-
-        if self.coupon_id:
-            return Coupon.objects.get(id=self.coupon_id)
-        return None
-
-
-
-        if self.coupon:
-            return (self.coupon.discount / Decimal('100')) * self.total()
-        return Decimal('0')
-
-    coupon_apply_form = CouponApplyForm()
-
-    return render(request, 'bag/bag.html', {
-        'coupon_apply_form': coupon_apply_form
-    })
+    return render(request, 'bag/bag.html')
 
 
 def add_to_bag(request, item_id):

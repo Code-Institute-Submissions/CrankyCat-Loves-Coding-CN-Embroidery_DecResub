@@ -118,7 +118,7 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
   - [Wiki](https://www.wikipedia.org/)
   - [Heroku]( https://dashboard.heroku.com/apps)
   - [Responsive design](http://ami.responsivedesign.is/#)
-  - [giphy](https://giphy.com/)
+  - [Privacy Policy Generator](https://www.privacypolicygenerator.info/ )
 
 [Back to the top](#overview)
 
@@ -145,17 +145,14 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
 
 ### 5. **Support**
 
-- Mentor
-
-  - [Daisy McGirr]( https://www.linkedin.com/in/daisy-mcgirr-4a3671173/)
-  Full Stack Python (Django) Developer at PwC | Operate
+- Code Institute Tutor Assistance
 
   [Back to the top](#overview)
 
 ### 6. **Reference and Research**
 
 - Reference
-  - [Kylie Ying](https://www.youtube.com/watch?v=xRlN8CFJwAM&ab_channel=KylieYing)
+  - [Article 1](http://k.sina.com.cn/article_7059102645_p1a4c15bb500100hze9.html?from=cul )
 
 [Back to the top](#overview)
 

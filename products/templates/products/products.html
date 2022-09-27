@@ -45,7 +45,21 @@
                         
                         <a class="btn btn-outline-info" href="{% url 'edit_product' product.id %}">Edit</a>
                         <a class="btn btn-outline-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        
+
+                        {% for item in products %}
+                          {% if ln %}
+                            {% for l in ln %}
+                              <a href="#" class="badge badge-warning" id="success">Warning</a>
+                              {% if l.discussion == item %}
+                                <script>
+                                  obj = document.getElementById('id{{item.id}}');
+                                  obj.classname = 'success'
+                                </script>
+                              {% endif %}
+                            {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+
                       {% endif %}
                     </div>
                   </div>
