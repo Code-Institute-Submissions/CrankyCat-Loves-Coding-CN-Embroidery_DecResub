@@ -98,24 +98,36 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
 
   - No errors or warnings were found when passing through the official PEP8 validator.
 
-- Normal testing
-  - The game runs smoothly with normal activities. Obtaining the player's name and capitalized the first letter correctly. Validating the player's input such as 'y' or 'n' for start or exit the game. Showing no issues for corrent moves as 'r', 'p' or 's', also image and message for tie, win or lost displayed accordingly. The game can be exited easily by enter 'n' and goodbye message displayed correctly. More details can be found as per following gif image.
-  - ![testing-normal](images/testing-normal-30sec.gif)
+- Errors and Solution
+  - ***Error 1***
+    - ***Error message***: ERROR: Could not build wheels for backports.zoneinfo, which is required to install pyproject.toml-based projects
+    - ***Solution***:
+      - ```Heroku login -i``` (login to Heroku)
+      - ```heroku stack:set heroku-20 -a <app name>```
+      - runtime.txt (root directory, with the content of: python-3.8.14)
+      - save, commit, push, deploy to heroku
+      - [Article](https://devcenter.heroku.com/articles/heroku-20-stack)
+  
+  - ***Error 2***
+    - ***Error message***: TypeError: expected str, bytes or os.PathLike object, not tuple
+    - ***Solution***: ```MEDIA_ROOT = os.path.join(BASE_DIR, 'media')```, media_root was incorrectly set
+    
+  - ***Error 3***
+    - ***Error message***: Class Product has no objects member
+    - ***Solution***:
+      - Fixed by adding ```objects = models.Manager()``` to Product.
+      - That's not an error, it's just a warning from VSC. Django adds that property dynamically to all model classes (it uses a lot of magic under the hood), so the IDE doesn't know about it by looking at the class declaration, so it warns you about a possible error (it's not). objects is in fact a Manager instance that helps with querying the DB. If you really want to get rid of that warning you could go to all your models and add objects = models.Manager() Now, VSC will see the objects declared and will not complain about it again.
+      - [Article](https://stackoverflow.com/questions/45135263/class-has-no-objects-member )
 
-- Function start() testing:
-  - A bug was identified when testing on the start() function. There was a chance that a player may enter anything else other than y’ or ‘n. Hence used while…not in…: method to validate input and display a message to require the player to enter only ‘y’ or ‘n’ to start or exit the game. Then the player can exit the game by entering 'n' without any issue.
-  - ![testing-input](images/input-validate.gif)
-
-- Function play() testing:
-  - The same bug fixed in play() function. The computer displays a message to the player if invalid input is identified. For example, the computer will display a message of "enter 'r' for Rock,'p' for Paper,'s' for Scissors" to the player if input identified as 'abc' where it should has been chosen 'r', 'p' or 's'.
-  - ![testing input play function](images/input-validate-play-function.gif)
-
-- Function player_win( ) testing:
-  - The game is designed to allow the player to win 3 times of the game. However, there was a bug where the game ended after the player has won 2 times. It was fixed by updating the n value when called the function. It needed to be 5 other than 3 because of the math.ceiling method. 
-
-- Goodbye message testing:
-  - The game terminates if the player enters ‘n’  and  Goodbye message displayed as expected.
-  - ![goodbye message](images/goodbye-message.gif)
+- ***Error 4***
+    - ***Error message***: django.db.migrations.exceptions.NodeNotFoundError: Migration checkout.0005_order_coupon dependencies reference nonexistent parent node ('coupons', '0003_alter_coupon_coupon_code_alter_coupon_discount_price')
+    - ***Solution***:
+      - basicly to solved this error is to completely remove your Django migrations and reset your database.
+      - before doing that it is better to save database by using ```python3 manage.py dumpdata products.product > products_dump.json```,```python3 manage.py dumpdata products.category > categories_dump.json```. this can be skip if fixture is in place. This is how we got them.products is the app name, product is the model, products_dump.json is the name of the file we put the data in
+      - Remove the all migrations files within your project. Go through each of your project apps' migration folders and remove everything inside, except the __init__.py file.
+      - Drop the database. If you're using Heroku Postgres, the command for this is: ```heroku pg:reset DATABASE_URL```, need to login to Heroku ```Heroku login -i``` before doing that
+      - Run the commands ```python3 manage.py makemigrations``` and ```python3 manage.py migrate``` to remake migrations and setup the new database
+      - ```python3 manage.py loaddata categories```, ```python3 manage.py loaddata products``` to load data back
 
 - Technology Stack
   There is a list of tools or method had been used during the period of development:
@@ -125,15 +137,12 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
   - [x] [Django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
   - [x] [Django-countries](https://pypi.org/project/django-countries/)
   - [x] [pillow](https://pillow.readthedocs.io/en/stable/index.html)
+  - [x] [cloudinary](https://cloudinary.com/)
   - [x] [Stripe](https://stripe.com/docs/api?lang=python)
   - [x] [AWS](https://aws.amazon.com/)
-
+  - [x] [DMB](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
   - [x] [Heroku]( https://dashboard.heroku.com/apps)
   - [x] [Privacy Policy Generator](https://www.privacypolicygenerator.info/ )
-
-  *Validation Tools*
-  - [x] [Python](https://www.python.org/)
-  - [x] [PEP8](http://pep8online.com/)
 
   *Other*
   - [x] [Responsive design](http://ami.responsivedesign.is/#)
