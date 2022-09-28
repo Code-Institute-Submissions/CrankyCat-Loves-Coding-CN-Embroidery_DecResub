@@ -29,29 +29,55 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
 
 ### **2. How to Achieve?**
 
-- Home page
-
-  - **Welcome Page**
+- **User View**
 
   ![Welcome-page](media/home-page-intro.gif)
 
   - Nav bar
     - ***CNEbroidery***: clicking website name will be redirected back to the home page.
-    - ***My account***: allowing users to login or sign up.
+    - ***My account***: allowing users to login or sign up. This is built by using a popular pre-built package called Django-allauth. It's an open-source and believed to be secure and maintaind up-to-date. It's also easy to add more functionality to it.
 
-    ![Login and Sign Up](media/login-signup.gif)
+    ![Login](media/login-signup.gif)
     
-    - ***Products***: users can access product page by clicking 'shop now' button or via nav product link. It contains all products link and individual product categories. There are three categories which are Decoration, Fashion and Offers.
+    - ***Products***: users can access product page by clicking 'shop now' button or via nav product link. It contains all links for products and categories. There are three categories which are Decoration, Fashion and Offers.
 
     ![Products-page](media/product-page.gif)
 
     - ***Search engine and sorting products***: users are able to search from the entire site or sort by product size from small to big or sort by product price from low to high.
-    - ***Cart***: the color of cart icon will change to blue if users have added any items to cart. The total amount of shopping also availiable there. Clicking 'View Cart' will direct our users to cart detail page.
+    - ***Cart (bag model)***: the color of cart icon will change to blue if users have added any items to cart. The total amount of shopping also available there. Clicking 'View Cart' will direct our users to cart detail page.
 
   - Footer
     - ***Subscribe***: users can enter an email to subscribe monthly newsletter to get exclusive offers and discount codes.
     - ***Facebook Social Link***: Facebook is used to build a community and deepening relationships with customers to encourage interest and customer loyalty.
     - ***Privacy Policy***: Privacy Policy to display to make sure that business complies with the law.
+
+- My account
+  - ***Sign up***:
+    A confirmation email will be sent to registered email and a page instructing how to complete the registration is displayed. Once the user confirm registered email then personal profile will be created successfully.
+
+    ![Sign Up](media/sign-up.gif)
+
+  - ***Profile (UserProfile model)***:
+    User has a personalized user profile. They can edit and save their information via the profile page. User can also check their order history via this page.
+
+    ![Profile](media/profile.jpg) 
+    ![order-history](media/order-history.jpg)
+
+
+    - ***Products***: all products page contain product image, product name, product category, product size, product price. Click on 'Details' bottom will be redirected to product detail page which will show description of the product and a bottom to add to cart. 
+
+    - ***Payment***: Stripe is used to collect payment. Order confirmation email will be sent after user completed payment. User will be able to view order summary at the check-out-success page.
+
+    ![Order](media/order.gif)
+
+- Product management
+- ***Add a product***:
+  A user who is authenticated super user will be able to add, edit and remove an item. Adding a product can be access though "My Account" then "Product Management".
+
+- ***Edit and remove a product***:
+  Editing and removing option will be display is user is authenticated.
+
+  ![Edit product](media/edit-product.gif)
 
 
 - **Program flow chart**
@@ -63,27 +89,6 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
     The program displays rules after the input ‘y’ is identified and guides the player to make a move by entering 'r' for Rock, 'p' for Paper or 's' for Scissors.
 
     If the player wins, the computer displays a message and a partial image. Once the player has won 3 times, the computer displays a full image. Then the player is asked if they wish to replay the game or exit the game.
-
-- **How to Play**
-
-    The computer randomly chooses Rock, Paper or Scissors. The player can enter ‘r’ for Rock, ‘p’ for Paper or ‘s’ for Scissors to play against the computer. A player who decides to play rock will beat another player who has chosen scissors ("rock crushes scissors" or sometimes "blunts scissors"), but will lose to one who has played paper ("paper covers rock"); a play of paper will lose to a play of scissors ("scissors cuts paper"). If both players choose the same shape, the game is tied.
-    If it’s a tie, the computer displays the following message:
-
-    ![Tie](images/tie.jpg)
-
-    If the player loses, the computer displays the following message:
-
-    ![Player loses](images/lost.jpg)
-
-    If the player wins, the computer displays a message and a partial image as below:
-
-    ![Player wins](images/win.jpg)
-
-    Once the player has won 3 time, the computer displays a full image as below:
-
-    ![Full image](images/full_image.jpg)
-
-    Then the player is asked if they wish to replay the game or exit the game.
 
 [Back to the top](#overview)
 
@@ -113,12 +118,27 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
   - ![goodbye message](images/goodbye-message.gif)
 
 - Technology Stack
-  - [Python](https://www.python.org/)
-  - [PEP8](http://pep8online.com/)
-  - [Wiki](https://www.wikipedia.org/)
-  - [Heroku]( https://dashboard.heroku.com/apps)
-  - [Responsive design](http://ami.responsivedesign.is/#)
-  - [Privacy Policy Generator](https://www.privacypolicygenerator.info/ )
+  There is a list of tools or method had been used during the period of development:
+
+  *Building methods*
+  - [x] [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+  - [x] [Django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+  - [x] [Django-countries](https://pypi.org/project/django-countries/)
+  - [x] [pillow](https://pillow.readthedocs.io/en/stable/index.html)
+  - [x] [Stripe](https://stripe.com/docs/api?lang=python)
+  - [x] [AWS](https://aws.amazon.com/)
+
+  - [x] [Heroku]( https://dashboard.heroku.com/apps)
+  - [x] [Privacy Policy Generator](https://www.privacypolicygenerator.info/ )
+
+  *Validation Tools*
+  - [x] [Python](https://www.python.org/)
+  - [x] [PEP8](http://pep8online.com/)
+
+  *Other*
+  - [x] [Responsive design](http://ami.responsivedesign.is/#)
+  - [x] [Ezgif](https://ezgif.com/)
+ 
 
 [Back to the top](#overview)
 
@@ -152,8 +172,12 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
 ### 6. **Reference and Research**
 
 - Reference
-  - [Article 1](http://k.sina.com.cn/article_7059102645_p1a4c15bb500100hze9.html?from=cul )
+  - [x] [Wiki](https://www.wikipedia.org/)
+  - [x] [Article 1](http://k.sina.com.cn/article_7059102645_p1a4c15bb500100hze9.html?from=cul )
+  - [x] [README Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#uploading-assets)
+
 
 [Back to the top](#overview)
+
 
 
