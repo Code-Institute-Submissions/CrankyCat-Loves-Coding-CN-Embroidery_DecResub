@@ -38,7 +38,7 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
     - ***My account***: allowing users to login or sign up. This is built by using a popular pre-built package called Django-allauth. It's an open-source and believed to be secure and maintaind up-to-date. It's also easy to add more functionality to it.
 
     ![Login](media/login-signup.gif)
-    
+
     - ***Products***: users can access product page by clicking 'shop now' button or via nav product link. It contains all links for products and categories. There are three categories which are Decoration, Fashion and Offers.
 
     ![Products-page](media/product-page.gif)
@@ -60,7 +60,8 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
   - ***Profile (UserProfile model)***:
     User has a personalized user profile. They can edit and save their information via the profile page. User can also check their order history via this page.
 
-    ![Profile](media/profile.jpg) 
+    ![Profile](media/profile.jpg)
+
     ![order-history](media/order-history.jpg)
 
 
@@ -71,10 +72,10 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
     ![Order](media/order.gif)
 
 - Product management
-- ***Add a product***:
+  - ***Add a product***:
   A user who is authenticated super user will be able to add, edit and remove an item. Adding a product can be access though "My Account" then "Product Management".
 
-- ***Edit and remove a product***:
+  - ***Edit and remove a product***:
   Editing and removing option will be display is user is authenticated.
 
   ![Edit product](media/edit-product.gif)
@@ -82,13 +83,7 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
 
 - **Program flow chart**
 
-    ![Flow Chart](images/flow-chart.jpg)
-
-    Firstly, the program obtains the player’s name and then greets the player.
-    Secondly, the program asks the question “Would you like to play to play?” and takes input from the player to determine if the game continues or stops. If the player enters ‘n’, then the game is terminated. At the same time print out a goodbye message to the player. If the player enters ‘y’, then the game starts.
-    The program displays rules after the input ‘y’ is identified and guides the player to make a move by entering 'r' for Rock, 'p' for Paper or 's' for Scissors.
-
-    If the player wins, the computer displays a message and a partial image. Once the player has won 3 times, the computer displays a full image. Then the player is asked if they wish to replay the game or exit the game.
+    ![Flow Chart](media/CNE-flowchat.jpg)
 
 [Back to the top](#overview)
 
@@ -119,7 +114,7 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
       - That's not an error, it's just a warning from VSC. Django adds that property dynamically to all model classes (it uses a lot of magic under the hood), so the IDE doesn't know about it by looking at the class declaration, so it warns you about a possible error (it's not). objects is in fact a Manager instance that helps with querying the DB. If you really want to get rid of that warning you could go to all your models and add objects = models.Manager() Now, VSC will see the objects declared and will not complain about it again.
       - [Article](https://stackoverflow.com/questions/45135263/class-has-no-objects-member )
 
-- ***Error 4***
+  - ***Error 4***
     - ***Error message***: django.db.migrations.exceptions.NodeNotFoundError: Migration checkout.0005_order_coupon dependencies reference nonexistent parent node ('coupons', '0003_alter_coupon_coupon_code_alter_coupon_discount_price')
     - ***Solution***:
       - basicly to solved this error is to completely remove your Django migrations and reset your database.
@@ -143,32 +138,29 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
   - [x] [DMB](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
   - [x] [Heroku]( https://dashboard.heroku.com/apps)
   - [x] [Privacy Policy Generator](https://www.privacypolicygenerator.info/ )
+  - [x] [lucid](https://lucid.app/)
 
-  *Other*
+  **Other**
   - [x] [Responsive design](http://ami.responsivedesign.is/#)
   - [x] [Ezgif](https://ezgif.com/)
- 
 
 [Back to the top](#overview)
 
 ### 4. **Deployment**
 
-- The game was deployed to [Heroku]( https://dashboard.heroku.com/apps) page. The steps to deploy are as follows:
+- The site was deployed to [CNEmbroidery]( https://cnembroidery.herokuapp.com/) page. The steps to deploy are as follows:
 
 - In the Heroku page, select ‘Create new app’
-![Heroku](images/Heroku.jpg)
 
 - Create app name and choose a region
 
 - Navigate to the setting tab. Add Python and node.js buildpacks
-![buildpacks](images/buildpacks.png)
 
-- At the deploy section, connect to Github, search and link to Rock-Paper-Scissors repository.
-![buildpacks](images/github.jpg)
+- At the deploy section, connect to Github, search and link to CNEmbroidery repository.
 
 - Scroll down to set up automatic deploys, it enables Heroku to rebuild the app every time push code to Github.
 
-- The live link can be found here [link]( https://rack-paper-scissors.herokuapp.com/)
+- The live link can be found here [link]( https://cnembroidery.herokuapp.com/)
 
 [Back to the top](#overview)
 
@@ -185,8 +177,4 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
   - [x] [Article 1](http://k.sina.com.cn/article_7059102645_p1a4c15bb500100hze9.html?from=cul )
   - [x] [README Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#uploading-assets)
 
-
 [Back to the top](#overview)
-
-
-
