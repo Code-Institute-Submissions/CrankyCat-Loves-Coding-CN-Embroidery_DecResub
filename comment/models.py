@@ -1,19 +1,51 @@
 from django.db import models
+from django.contrib.auth.models import User
+from products.models import Product
 
 
-class User(models.Model):
-    username = models.CharField('Name', max_length=10, null=True)
+STATUS = ((0, "Draft"), (1, "Published"))
 
+class Post(models.Model):
+    title = models.CharField(max_length=200, unique=True, null=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True)
 
-class Discussion(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    like = models.PositiveIntegerField("Like", default=0, editable=False)
+    author = models.ForeignKey(
+        User,
+        null=True,
+        on_delete=models.CASCADE, related_name="blog_posts"
+    )
+    content = models.TextField(null=True,)
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
+    status = models.IntegerField(choices=STATUS, default=0, null=True)
+    likes = models.ManyToManyField(
+        User, related_name='blogpost_like', blank=True)
+    name = models.CharField(max_length=254, null=True)
+
     class Meta:
-        verbose_name_plural = 'Discussion'
+        ordering = ["-created_on"] 
+
+    def __str__(self):
+        return self.name
+
+    def number_of_likes(self):
+        return self.likes.count()
 
 
-class LikeNum(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    discussion = models.ForeignKey(Discussion, on_delete=models.SET_NULL, null=True)
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post,
+        null=True,
+        on_delete=models.CASCADE,
+        related_name="comments"
+    )
+    name = models.CharField(max_length=80, null=True)
+    email = models.EmailField(null=True)
+    body = models.TextField(null=True)
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
+    approved = models.BooleanField(default=False, null=True)
+
     class Meta:
-        verbose_name_plural = 'user'
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.name}"

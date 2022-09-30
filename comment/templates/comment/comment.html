@@ -1,0 +1,55 @@
+<!-- product page for the site -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      {% include 'home/home_nav.html' %}
+
+      <div class="album py-5 bg-black">
+        <div class="container">
+          <div class="row">
+            
+            <div class="col">
+
+              <div class="card-body">
+                
+                {% for post in post %}
+                
+                  <h1>testing</h1>
+                  <p>
+                    <a class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      <i class="far fa-heart mr-1"></i>{{ post.number_of_likes }}
+                    </a>
+                    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
+                      <i class="fa-regular fa-comment-dots mr-1"></i>
+                    </button>
+                  </p>
+                  
+                  <div class="collapse" id="collapseComment">
+                    <div class="card card-body ">
+                        
+                      <a href="" class="post-link">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                      </a>
+                    
+                    </div>
+                  </div>
+                             
+                {% endfor %}
+              </div>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      {% include 'home/home_footer.html' %}
+
+    </div>
+</body>
+
+{% endblock %}
