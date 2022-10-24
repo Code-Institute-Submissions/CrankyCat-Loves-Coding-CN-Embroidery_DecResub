@@ -49,6 +49,7 @@ The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery
   - Footer
     - ***Subscribe***: users can enter an email to subscribe monthly newsletter to get exclusive offers and discount codes.
     - ***Facebook Social Link***: Facebook is used to build a community and deepening relationships with customers to encourage interest and customer loyalty.
+    ![Products-page](media/facebook.gif)
     - ***Privacy Policy***: Privacy Policy to display to make sure that business complies with the law.
 
 - My account
