@@ -1,51 +1,48 @@
 from django.db import models
-from django.contrib.auth.models import User
-from products.models import Product
+# from django.contrib.auth.models import User
 
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
-class Post(models.Model):
-    title = models.CharField(max_length=200, unique=True, null=True)
-    slug = models.SlugField(max_length=200, unique=True, null=True)
-
-    author = models.ForeignKey(
-        User,
-        null=True,
-        on_delete=models.CASCADE, related_name="blog_posts"
+class Event(models.Model):
+    
+    STATUS_CHOICES = (
+        ('d', 'Draft'),
+        ('p', 'Published'),
     )
-    content = models.TextField(null=True,)
-    created_on = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.IntegerField(choices=STATUS, default=0, null=True)
-    likes = models.ManyToManyField(
-        User, related_name='blogpost_like', blank=True)
-    name = models.CharField(max_length=254, null=True)
-
-    class Meta:
-        ordering = ["-created_on"] 
-
-    def __str__(self):
-        return self.name
-
-    def number_of_likes(self):
-        return self.likes.count()
-
-
-class Comment(models.Model):
-    post = models.ForeignKey(
-        Post,
-        null=True,
-        on_delete=models.CASCADE,
-        related_name="comments"
-    )
-    name = models.CharField(max_length=80, null=True)
-    email = models.EmailField(null=True)
+    title = models.CharField(max_length=70, null=True)
     body = models.TextField(null=True)
-    created_on = models.DateTimeField(auto_now_add=True, null=True)
-    approved = models.BooleanField(default=False, null=True)
-
-    class Meta:
-        ordering = ["created_on"]
+    created_time = models.DateTimeField(auto_now_add=True, null=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, null=True)
+    abstract = models.CharField(
+        max_length=54, blank=True, null=True,
+        help_text="get the first 54 text",
+    ) 
+    views = models.PositiveIntegerField(default=0, null=True) 
+    likes = models.PositiveIntegerField(default=0, null=True)
+    topped = models.BooleanField(default=False, null=True) 
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return self.title    
+    
+    class Meta:
+        ordering = ['-created_time']
+
+
+# class AddComment(models.Model):
+
+#     author = models.ForeignKey(
+#         User,
+#         null=True,
+#         on_delete=models.CASCADE
+#     )
+#     slug = models.SlugField(max_length=200, unique=True, null=True)
+#     content = models.TextField(null=True,)
+#     created_on = models.DateTimeField(auto_now_add=True, null=True)
+#     likes = models.ManyToManyField(
+#         User, blank=True
+#     )
+
+#     class Meta:
+#         ordering = ["-created_on"] 
+
+#     def __str__(self):
+#         return self.author

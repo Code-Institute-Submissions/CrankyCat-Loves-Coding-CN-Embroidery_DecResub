@@ -1,13 +1,18 @@
-# from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View
-# from django.http import HttpResponseRedirect
-from .models import Post
-# from .forms import CommentForm
+import markdown2
+from comment.models import Event
+from django.views.generic import ListView
 
 
-class PostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
-    template_name = "comment/comment.html"
-    paginate_by = 4
 
+class EventView(ListView):
+    template_name = "comment/event.html"
+    context_object_name = "event_list"
+
+    def get_queryset(self):
+        event_list = Event.objects.filter(status='p') 
+
+        for event in event_list:
+            event.body = markdown2.markdown(event.body, )  
+        return event_list 
+
+    
