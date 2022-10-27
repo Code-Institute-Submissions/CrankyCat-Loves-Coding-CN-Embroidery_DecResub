@@ -1,8 +1,9 @@
 from django.contrib import admin
 from comment.models import Event
+from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Event)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
 
     list_display = (
         'title',
@@ -12,3 +13,5 @@ class PostAdmin(admin.ModelAdmin):
         'views',
         'likes',
     )
+
+    summernote_fields = ('body')
