@@ -5,23 +5,25 @@ from django.db import models
 class Event(models.Model):
     
     STATUS_CHOICES = (
-        ('d', 'Draft'),
-        ('p', 'Published'),
+        ('draft', 'Draft'),
+        ('published', 'Published'),
     )
+
     title = models.CharField(max_length=70, null=True)
+    abstract = models.CharField(
+        max_length=100, blank=True, null=True,
+        help_text="Write a post excerpt within 200 characters",
+    )
     body = models.TextField(null=True)
     created_time = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES, null=True)
-    abstract = models.CharField(
-        max_length=54, blank=True, null=True,
-        help_text="get the first 54 text",
-    ) 
-    views = models.PositiveIntegerField(default=0, null=True) 
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=True)
+    views = models.PositiveIntegerField(default=0, null=True)
     likes = models.PositiveIntegerField(default=0, null=True)
-    topped = models.BooleanField(default=False, null=True) 
+    topped = models.BooleanField(default=False, null=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return self.title    
+        return self.title
     
     class Meta:
         ordering = ['-created_time']

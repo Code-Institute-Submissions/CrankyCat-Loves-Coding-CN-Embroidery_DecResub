@@ -7,14 +7,13 @@
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
     {% include 'home/home_nav.html' %}
-    
 
     <div class="album py-5 bg-black">
 
       <div class="row">
         <div class="col-12">
             <hr>
-            <h4 >Store Events</h4>
+            <h4 >Draft Store Events</h4>
             <hr>
         </div>
       </div>
@@ -39,18 +38,18 @@
                 <p>
 
                   <a class="btn">
-                    <i class="fa-regular fa-eye mr-1 text-info"></i>
-                    <span class="text-info">Views {{event.views}}</span>
+                    <i class="fa-solid fa-pen-nib text-success"></i>
+                    <span class="text-success">Status: {{event.status}}</span>
                   </a>
 
                   <a class="btn">
-                    <i class="far fa-heart mr-1 text-info"></i>
-                    <span class="text-info">Like {{event.likes}}</span>
+                    <i class="fa-solid fa-pen-to-square text-primary"></i>
+                    <span class="text-primary">Edit</span>
                   </a>
 
                   <button class="btn" type="button" data-toggle="modal" data-target=".modal-{{event.id}}">
-                    <i class="fa-regular fa-comment-dots mr-1 text-info"></i>
-                    <span class="text-info">Comment</span>
+                    <i class="fa-solid fa-trash-can text-danger"></i>
+                    <span class="text-danger">Delete</span>
                   </button>
 
                   <button class="btn" type="button" data-toggle="modal" data-target=".modal-{{event.id}}">
@@ -71,6 +70,7 @@
                     <h5 class="mb-1 text-info">{{ event.title }}</h5>
                     <p><small class="text-muted">Created on {{event.created_time}}</small></p>
                     <span class="text-dark">{{ event.body|safe}}</span>
+                    
                   </div>
                 </div>
               </div>
@@ -109,7 +109,32 @@
               </ul>
             </nav>
             <!-- pagination -->
+            
+            <div class="row">
+              <div class="col-12">
+                <form method="POST" action="{% url 'addevent' %}" class="mb-2" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form | crispy }}
+                  <div class="text-right mb-5">
 
+                    <a href="#" class="btn btn-outline-black rounded-0 text-white">
+                      <span class="icon mr-2">
+                        <i class="fa-solid fa-xmark"></i>
+                      </span>
+                      <span class="font-weight-bold">Cancel</span>
+                    </a>
+
+                    <button type="submit" class="btn btn-black rounded-0 text-white">
+                      <span class="font-weight-bold">Add Event</span>
+                        <span class="icon ml-2">
+                          <i class="fa-solid fa-plus"></i>
+                        </span>
+                    </button>
+
+                  </div>
+                </form>
+              </div>            
+            </div>
           </div>
         </div>
 
