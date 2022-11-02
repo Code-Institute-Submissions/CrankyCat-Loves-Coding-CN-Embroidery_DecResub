@@ -14,6 +14,7 @@
         <div class="col-12">
             <hr>
             <h4 >Draft Store Events</h4>
+            <p class="text-muted text-right">Logged in as <span class="text-info">{{ user }}</span></p>
             <hr>
         </div>
       </div>
@@ -47,10 +48,10 @@
                     <span class="text-primary">Edit</span>
                   </a>
 
-                  <button class="btn" type="button" data-toggle="modal" data-target=".modal-{{event.id}}">
+                  <a class="btn" href="{% url 'delete_event' event.id %}">
                     <i class="fa-solid fa-trash-can text-danger"></i>
                     <span class="text-danger">Delete</span>
-                  </button>
+                  </a>
 
                   <button class="btn" type="button" data-toggle="modal" data-target=".modal-{{event.id}}">
                     <i class="fa-solid fa-up-right-from-square mr-1 text-info"></i>
@@ -117,19 +118,19 @@
                   {{ form | crispy }}
                   <div class="text-right mb-5">
 
-                    <a href="#" class="btn btn-outline-black rounded-0 text-white">
+                    <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 text-white">
                       <span class="icon mr-2">
                         <i class="fa-solid fa-xmark"></i>
                       </span>
                       <span class="font-weight-bold">Cancel</span>
                     </a>
 
-                    <button type="submit" class="btn btn-black rounded-0 text-white">
+                    <a href="{% url 'addevent' %}" class="btn btn-black rounded-0 text-white">
                       <span class="font-weight-bold">Add Event</span>
                         <span class="icon ml-2">
                           <i class="fa-solid fa-plus"></i>
                         </span>
-                    </button>
+                      </a>
 
                   </div>
                 </form>

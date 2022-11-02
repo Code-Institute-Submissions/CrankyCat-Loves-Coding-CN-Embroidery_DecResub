@@ -19,8 +19,9 @@
                 <div class="dropdown-menu" aria-labelledby="myaccount-dropdown">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                            <a class="dropdown-item" href="{% url 'add_product' %}">Add Products</a>
-                            <a class="dropdown-item" href="{% url 'addevent' %}">Add Events</a>
+                            <a class="dropdown-item" href="{% url 'add_product' %}">Add Product</a>
+                            <a class="dropdown-item" href="{% url 'addevent' %}">Add Event</a>
+                            <a class="dropdown-item" href="{% url 'draftevents' %}">Draft Events</a>
                             <hr>
                         {% endif %}
                             <a class="dropdown-item" href="{% url 'events' %}">Store Events</a>
