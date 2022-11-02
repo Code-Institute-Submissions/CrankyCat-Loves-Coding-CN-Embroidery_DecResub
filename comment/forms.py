@@ -1,27 +1,21 @@
 from django import forms
-from products.widgets import CustomClearableFileInput
+from django_summernote.fields import SummernoteTextField
 from .models import Event
 
 
 class EventForm(forms.ModelForm):
     """A form to add events"""
-
+    
+    body = SummernoteTextField()
 
     class Meta:
-
+        
         model = Event
-
+        
         fields = [
             'title',
             'abstract',
             'body',
-            'image',
             'status',
             'topped',
         ]
-    
-    image = forms.ImageField(
-        label='Image',
-        required=False,
-        widget=CustomClearableFileInput,
-    )

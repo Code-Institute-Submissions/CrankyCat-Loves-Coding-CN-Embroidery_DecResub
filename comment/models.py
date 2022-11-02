@@ -20,7 +20,6 @@ class Event(models.Model):
     views = models.PositiveIntegerField(default=0, null=True)
     likes = models.PositiveIntegerField(default=0, null=True)
     topped = models.BooleanField(default=False, null=True)
-    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
