@@ -81,9 +81,8 @@
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     
-                    <h5 class="mb-1 text-info">{{ event.title }}</h5>
-                    <p><small class="text-muted">Created on {{event.created_time}}</small></p>
-                    <span class="text-dark">{{ event.body|safe}}</span>
+                    {% include 'comment/event_details.html' %}
+
                   </div>
                 </div>
               </div>
