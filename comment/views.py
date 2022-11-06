@@ -75,6 +75,10 @@ def add_event(request):
 def edit_event(request, event_id):
     """edit store events"""
 
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, Permission denied.')
+        return redirect(reverse('home'))
+
     event = get_object_or_404(Event, pk=event_id)
     
     if request.method == 'POST':

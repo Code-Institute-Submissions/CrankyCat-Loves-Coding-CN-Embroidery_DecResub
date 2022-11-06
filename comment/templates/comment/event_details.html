@@ -49,16 +49,17 @@
                         <i class="far fa-heart mr-1 text-info"></i>
                         <span class="text-info">Like {{event.likes}}</span>
                     </a>
-
-                    <a class="btn" href= "{% url 'edit_event' event.id %}">
-                        <i class="fa-solid fa-pen-to-square text-primary"></i>
-                        <span class="text-primary">Edit</span>
-                    </a>
-    
-                    <a class="btn" href="{% url 'delete_event' event.id %}">
-                        <i class="fa-solid fa-trash-can text-danger"></i>
-                        <span class="text-danger">Delete</span>
-                    </a>
+                    {% if request.user.is_superuser %}
+                        <a class="btn" href= "{% url 'edit_event' event.id %}">
+                            <i class="fa-solid fa-pen-to-square text-primary"></i>
+                            <span class="text-primary">Edit</span>
+                        </a>
+        
+                        <a class="btn" href="{% url 'delete_event' event.id %}">
+                            <i class="fa-solid fa-trash-can text-danger"></i>
+                            <span class="text-danger">Delete</span>
+                        </a>
+                    {% endif %}
                 </p>
                 
 
