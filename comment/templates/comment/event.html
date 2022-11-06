@@ -67,7 +67,7 @@
 
                   {% if request.user.is_superuser %}
                     
-                    <a class="btn btn-outline-info" href="#">Edit</a>
+                    <a class="btn btn-outline-info" href="{% url 'edit_event' event.id %}">Edit</a>
                     <a class="btn btn-outline-danger" href="{% url 'delete_event' event.id %}">Delete</a>
 
                   {% endif %}

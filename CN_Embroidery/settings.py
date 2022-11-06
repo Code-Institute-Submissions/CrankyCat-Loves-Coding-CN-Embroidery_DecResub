@@ -71,7 +71,7 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-crankycatlo-cnembroider-dtwc54kzv6w.ws-eu73.gitpod.io',
+    'https://8000-crankycatlo-cnembroider-dtwc54kzv6w.ws-eu74.gitpod.io',
 ]
 
 ROOT_URLCONF = 'CN_Embroidery.urls'

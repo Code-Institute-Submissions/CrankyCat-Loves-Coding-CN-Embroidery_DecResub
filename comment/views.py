@@ -26,7 +26,7 @@ class EventView(ListView):
 class DraftEventView(ListView):
     """a view for loading all draft events for the shop"""
 
-    template_name = "comment/draftevents.html"
+    template_name = "comment/draft_events.html"
     context_object_name = "event_list"
     paginate_by = 3
 
@@ -55,21 +55,61 @@ def add_event(request):
         if event_form.is_valid():
             event_form.save()
             messages.success(request, 'Successfully added event!')
-            return redirect('addevent')
-        else:
-            messages.error(
-                request,
-                (
-                    'Failed to add event. '
-                    'Please try later.'
-                )
+            return redirect('add_event')
+        messages.error(
+            request,
+            (
+                'Failed to add event. '
+                'Please try later.'
             )
+        )
 
     context = {
         'form': event_form,
     }
 
-    return render(request, 'comment/addevent.html', context)
+    return render(request, 'comment/add_event.html', context)
+
+
+@login_required
+def edit_event(request, event_id):
+    """edit store events"""
+
+    event = get_object_or_404(Event, pk=event_id)
+    
+    if request.method == 'POST':
+        event_form = EventForm(request.POST, request.FILES, instance=event)
+        if event_form.is_valid():
+            event_form.save()
+            messages.success(
+                request,
+                f'Successfully updated {event.title}!'
+            )
+            if event.status == 'published':
+                return redirect(
+                    reverse('events')
+                )
+            return redirect(
+                reverse('draft_events')
+            )
+        messages.error(
+            request,
+            f'Failded to update {event.title}! Please try again later.'
+        )
+    else:
+        event_form = EventForm(instance=event)
+        messages.info(
+            request,
+            f'You are editing {event.title}'
+        )
+
+    context = {
+        'form': event_form,
+        'event': event,
+    }
+
+    return render(request, 'comment/edit_event.html', context)
+
 
 
 @login_required

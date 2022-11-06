@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    {% include 'home/home_nav.html' %}
+
+    <div class="album py-5 bg-black">
+
+      <div class="row">
+        <div class="col-12">
+            <hr>
+            <h4 >Edit Store Event</h4>
+            <p class="text-muted text-right">Logged in as <span class="text-info">{{ user }}</span></p>
+            <hr>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-12">
+            <form method="POST" action="{% url 'edit_event' event.id %}" class="mb-2 add_event-form" enctype="multipart/form-data">
+              {% csrf_token %}
+              
+              {{ form.title | as_crispy_field }}
+              {{ form.abstract | as_crispy_field }}
+
+              <div class="text-left text-dark">
+                <textarea id="summernote" name="body">{{event.body|safe}}</textarea>
+              </div>
+
+              <div class="form-row mt-3">
+                <div class="col-6">
+                  {{ form.status | as_crispy_field }}
+                </div>
+                
+                <div class="col-6">
+                  {{ form.topped | as_crispy_field }}
+                </div>
+                
+              </div>
+              <div class="text-right mb-5">
+
+                <a href="##" onClick="history.go(-1); return false;" class="btn btn-outline-black rounded-0 text-white">
+                  <span class="icon mr-2">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                  <span class="font-weight-bold">Cancel</span>
+                </a>
+  
+                <button type="submit" class="btn btn-black rounded-0 text-white update-link">
+                  <span class="font-weight-bold">Update Event</span>
+                    <span class="icon ml-2">
+                      <i class="fa-solid fa-plus"></i>
+                  </span>
+                </button>
+                 
+              </div>
+
+            </form>
+
+          </div> 
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {% include 'home/home_footer.html' %}
+
+  </div>
+
+</body>
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+      $('#summernote').summernote({
+        tabsize: 2,
+        height: 500,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['fontname', ['fontname']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'undo','redo','help']],
+        ],
+      });
+    </script>
+{% endblock %}

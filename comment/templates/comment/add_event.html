@@ -23,7 +23,7 @@
         <div class="row">
           
           <div class="col-12">
-            <form method="POST" action="{% url 'addevent' %}" class="mb-2 addevent-form" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'add_event' %}" class="mb-2 add_event-form" enctype="multipart/form-data">
               {% csrf_token %}
               
               {{ form.title | as_crispy_field }}
@@ -85,7 +85,16 @@
       $('#summernote').summernote({
         tabsize: 2,
         height: 500,
-
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['fontname', ['fontname']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'undo','redo','help']],
+        ],
       });
     </script>
 {% endblock %}

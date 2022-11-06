@@ -43,7 +43,7 @@
                     <span class="text-success">Status: {{event.status}}</span>
                   </a>
 
-                  <a class="btn">
+                  <a class="btn" href= "{% url 'edit_event' event.id %}">
                     <i class="fa-solid fa-pen-to-square text-primary"></i>
                     <span class="text-primary">Edit</span>
                   </a>
@@ -68,9 +68,7 @@
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     
-                    <h5 class="mb-1 text-info">{{ event.title }}</h5>
-                    <p><small class="text-muted">Created on {{event.created_time}}</small></p>
-                    <span class="text-dark">{{ event.body|safe}}</span>
+                    {% include 'comment/event_details.html' %}
                     
                   </div>
                 </div>
@@ -113,7 +111,7 @@
             
             <div class="row">
               <div class="col-12">
-                <form method="POST" action="{% url 'addevent' %}" class="mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'add_event' %}" class="mb-2" enctype="multipart/form-data">
                   {% csrf_token %}
                   {{ form | crispy }}
                   <div class="text-right mb-5">
@@ -125,7 +123,7 @@
                       <span class="font-weight-bold">Cancel</span>
                     </a>
 
-                    <a href="{% url 'addevent' %}" class="btn btn-black rounded-0 text-white">
+                    <a href="{% url 'add_event' %}" class="btn btn-black rounded-0 text-white">
                       <span class="font-weight-bold">Add Event</span>
                         <span class="icon ml-2">
                           <i class="fa-solid fa-plus"></i>
