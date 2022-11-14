@@ -54,9 +54,7 @@
                     <span class="text-info">Comment</span>
                   </button>
 
-                  <a class="btn" 
-                    href="{% url 'event_details' event.id  %}"
-                  >
+                  <a class="btn" type="button" data-toggle="modal" data-target=".modal-{{event.id}}">
                     <i class="fa-solid fa-up-right-from-square mr-1 text-info"></i>
                     <span class="text-info">Read More</span>
                   </a>
@@ -78,6 +76,17 @@
                 
               </div>
               
+              <!-- modal -->
+              <div class="modal fade modal-{{event.id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content">
+                    
+                    {% include 'comment/event_details.html' %}
+
+                  </div>
+                </div>
+              </div>
+
               <div class="my-4"></div>
 
               {% endfor %}
@@ -96,7 +105,7 @@
                     <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
                   </li>
                 {% endif %}
-
+  
                 <span class="current">
                   <li class="page-item">
                     <a class="page-link" href="#">
@@ -104,7 +113,7 @@
                     </a>
                   </li>
                 </span>
-
+  
                 {% if page_obj.has_next %}
                   <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
                   <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>

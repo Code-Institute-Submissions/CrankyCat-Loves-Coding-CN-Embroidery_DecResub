@@ -1,9 +1,11 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.shortcuts import reverse
+from django.contrib.auth.models import User
 
 
 class Event(models.Model):
-    
+    """store events"""
+
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
@@ -28,22 +30,25 @@ class Event(models.Model):
         ordering = ['-created_time']
 
 
-# class AddComment(models.Model):
+class Comment(models.Model):
+    """event comments"""
 
-#     author = models.ForeignKey(
-#         User,
-#         null=True,
-#         on_delete=models.CASCADE
-#     )
-#     slug = models.SlugField(max_length=200, unique=True, null=True)
-#     content = models.TextField(null=True,)
-#     created_on = models.DateTimeField(auto_now_add=True, null=True)
-#     likes = models.ManyToManyField(
-#         User, blank=True
-#     )
+    event = models.ForeignKey(
+        Event,
+        on_delete=models.CASCADE,
+        related_name='comments'
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='comments'
+    )
+    body = models.TextField(null=True)
+    created_time = models.DateTimeField(auto_now_add=True, null=True)
 
-#     class Meta:
-#         ordering = ["-created_on"] 
+    class Meta:
+        ordering = ["created_time", ]
 
-#     def __str__(self):
-#         return self.author
+    def __str__(self):
+        return self.body[:20]
+

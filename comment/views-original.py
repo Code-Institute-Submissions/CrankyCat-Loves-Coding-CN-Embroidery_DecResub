@@ -1,6 +1,6 @@
-"""view for store events and comments"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.views.generic import ListView
+from django.http import HttpResponseRedirect
+from django.views.generic import ListView, View
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import markdown2
@@ -39,28 +39,16 @@ class DraftEventView(ListView):
         return event_list
 
 
-def event_details_view(request, event_id):
-    """A view for render single event details"""
+# def event_details_view(request, event_id):
+#     """A view for render single event details"""
 
-    event_details = get_object_or_404(Event, pk=event_id)
+#     event_details = get_object_or_404(Event, pk=event_id)
 
-    context = {
-        'event_details': event_details,
-    }
+#     context = {
+#         'event_details': event_details,
+#     }
 
-    return render(request, 'comment/event_details.html', context)
-
-
-class CommentView(ListView):
-    """a view for loading all comments"""
-
-    template_name = "comment/event_details.html"
-    context_object_name = "comment_list"
-    paginate_by = 5
-
-    def get_queryset(self):
-        return Comment.objects.filter(comment_list=self.kwargs["event_id"])
-
+#     return render(request, 'comment/event_details.html', context)
 
 
 @login_required
@@ -105,7 +93,7 @@ def edit_event(request, event_id):
         return redirect(reverse('home'))
 
     event = get_object_or_404(Event, pk=event_id)
-
+    
     if request.method == 'POST':
         event_form = EventForm(request.POST, request.FILES, instance=event)
         if event_form.is_valid():
@@ -140,6 +128,7 @@ def edit_event(request, event_id):
     return render(request, 'comment/edit_event.html', context)
 
 
+
 @login_required
 def delete_event(request, event_id):
     """delete store events"""
@@ -170,7 +159,6 @@ def post_comment(request, event_id):
     if request.method == 'POST':
 
         comment_form = CommentForm(request.POST)
-        event_details = get_object_or_404(Event, pk=event_id)
 
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
@@ -182,12 +170,15 @@ def post_comment(request, event_id):
                 'Comment added Successfully!'
             )
             return redirect(
-                reverse('event_details', args=[event_details.id])
+                reverse('events')
             )
         messages.error(
             request,
             'Failded to leave a comment! Please try again later.'
         )
+        # return redirect(
+        #     '/'
+        # )
     else:
         comment_form = CommentForm(instance=event)
         messages.info(

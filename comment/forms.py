@@ -1,6 +1,6 @@
 from django import forms
 from django_summernote.fields import SummernoteTextField
-from .models import Event
+from .models import Event, Comment
 
 
 class EventForm(forms.ModelForm):
@@ -18,4 +18,16 @@ class EventForm(forms.ModelForm):
             'body',
             'status',
             'topped',
+        ]
+
+
+class CommentForm(forms.ModelForm):
+    """A form to add comments"""
+
+    class Meta:
+        
+        model = Comment
+        
+        fields = [
+            'body',
         ]

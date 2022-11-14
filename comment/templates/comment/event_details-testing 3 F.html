@@ -1,37 +1,44 @@
-{% extends "base.html" %}
-{% load static %}
 
-{% block content %}
-<body class="text-center">
-    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Event Details</title>
 
-        <div class="row justify-content-center p-4">
-            <div class="col-8">
-                {% include 'home/home_nav.html' %} 
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="jumbotron p-4 p-md-5 mt-5 text-dark rounded">
+                <div class="col-md-12 px-0">
+                    <h1 class="font-italic">{{event.title}}</h1>
+                    <p class="text-muted text-center">{{event.abstract}}</p>
+                </div>
             </div>
+
         </div>
-            
-
-        <div class=" p-4 p-md-5 text-white bg-dark">
-            <div class="col-md-12 px-0">
-                <h1 class="font-italic">{{event_details.title}}</h1>
-                <p class="text-muted text-center">{{event_details.abstract}}</p>
-
-                <div class="col-md-12 text-left text-white">
+        
+        <main role="main" class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-md-10 text-left text-dark">
 
                     <div>
                         <p class="text-right mx-2 my-2">
-                            Created on {{event_details.created_time}}
+                            Created on {{event.created_time}}
                         </p>
+
+                        <p>{{event.body|safe}}</p>
                     </div>
+
                 </div>
+
+
             </div>
-        </div>
 
-        <div class="blog-post bg-white text-dark p-4 p-md-5 ">
-            <p>{{event_details.body|safe}}</p>
-
-            <div class="row mx-5 ">
+            <div class="row mx-5">
                 <p class="text-left mx-2 my-2">
                    
                     <a class="btn">
@@ -43,17 +50,17 @@
                         <i class="far fa-heart mr-1 text-info"></i>
                         <span class="text-info">Like {{event.likes}}</span>
                     </a>
-                    
+
                     {% if request.user.is_superuser %}
-                        <a class="btn" href= "{% url 'edit_event' event_details.id %}">
-                            <i class="fa-solid fa-pen-to-square text-primary"></i>
-                            <span class="text-primary">Edit</span>
-                        </a>
-        
-                        <a class="btn" href="{% url 'delete_event' event_details.id %}">
-                            <i class="fa-solid fa-trash-can text-danger"></i>
-                            <span class="text-danger">Delete</span>
-                        </a>
+                    <a class="btn" href= "{% url 'edit_event' event.id %}">
+                        <i class="fa-solid fa-pen-to-square text-primary"></i>
+                        <span class="text-primary">Edit</span>
+                    </a>
+    
+                    <a class="btn" href="{% url 'delete_event' event.id %}">
+                        <i class="fa-solid fa-trash-can text-danger"></i>
+                        <span class="text-danger">Delete</span>
+                    </a>
                     {% endif %}
                 </p>
             </div>
@@ -62,10 +69,14 @@
             {% if user.is_authenticated %}
                 <div class="row justify-content-center">
                     <div class="col-8">
+                        <!-- <iframe src="" frameborder="0" name="iframe-submit-comment"></iframe> -->
+                        <!-- action="{% url 'post_comment' event.id %}"  -->
                         <form 
-                            action="{% url 'post_comment' event_details.id %}" 
+                            action="" 
                             method="POST"
                             class="add-comment-form"
+                            id="postForm"
+                            onsubmit="return sub();"
                         >
                         {% csrf_token %}
                             <div class="form-group">
@@ -92,7 +103,7 @@
 
                         <!-- <a class="btn btn-outline-info submit-comment">Submit</a>  -->
                     </div>
-
+                    
                 </div>
                 <br>
             {% else %}
@@ -102,7 +113,8 @@
                 </h5>
                 <br>
             {% endif %}
-
+        
+        
             <h5 class="text-dark">There are {{ comments.count }} comments</h5>
             <div>
                 <p class="text-dark">testing</p>
@@ -120,15 +132,49 @@
                     {{ comment.body }}</pre>
                 {% endfor %}
             </div>
-            
-        </div>
 
-        <div class="mt-5">
-            {% include 'home/home_footer.html' %}
-        </div>
+        </main>
 
-    </div>
+    </body>
+</html>
 
-</body>
+{% block postloadjs %}
+<script type="text/javascript">
+    // $('.submit-comment').click(function(e){
+    //     e.preventDefault();
+    //     var form = $(this).prev('.add-comment-form')
+    //     form.submit();
+    // })
 
+    // function subfun(){
+    //     $.ajax({
+    //         url: ""
+    //     })
+    // }
+
+    // document.querySelector('button').onclick=()=>{
+    //     console.log("已经成功提交"+document.querySelector('textarea').value);
+    // }
+ 
+    // function sub() {
+    //     $("#postForm").ajaxSubmit(function(message){
+    //         'Success'
+    //     });
+    //     return false;
+    // }
+    
+    function sub() {
+        $.ajax({
+            cache: ture,
+            type: "POST",
+            url:"post_comment", 
+            data:$('#postForm').serialize(),
+            async: false,
+            success: function(data) {
+                alert("SUCCESS!");
+            }
+        });
+        return false;
+    }
+</script>
 {% endblock %}

@@ -1,4 +1,4 @@
-# [**CNEbroidery**](https://https://cnembroidery.herokuapp.com/)
+# [**CNEbroidery**](https://cnembroidery.herokuapp.com/)
 
 ![Portfolio image](media/home-page.jpg)
 
@@ -23,11 +23,14 @@ This is an e-commerce web application complete with product search and filter fu
 - CNEbroidery
 [Details of Ebroidery described on Wiki](https://en.wikipedia.org/wiki/Chinese_embroidery)
 
-The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery has been popular in China for thousands of years，most of the Chinese embroideries are made of silk. It is commonly made by hand, especially for very sophisticated design. It's considered as one of best gifts or collections. This website is built to introduct Chinese Ebroidery and sell high quality Chinese Ebroidery. 
+The name CNEbroidery is a combanation of 'CN' and 'Ebroidery', Chinese Ebroidery has been popular in China for thousands of years，most of the Chinese embroideries are made of silk. It is commonly made by hand, especially for very sophisticated design. It's considered as one of best gifts or collections. This website is built to introduct Chinese Ebroidery and sell high quality Chinese Ebroidery.
 
 [Back to the top](#overview)
 
 ### **2. How to Achieve?**
+
+- **User Stories**
+
 
 - **User View**
 
