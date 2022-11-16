@@ -17,11 +17,6 @@ urlpatterns = [
         name='delete_event'
     ),
     path(
-        'comments/<int:event_id>/',
-        views.CommentView.as_view(),
-        name='comments'
-    ),
-    path(
         'post-comment/<int:event_id>/',
         views.post_comment,
         name='post_comment'

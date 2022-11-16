@@ -43,24 +43,14 @@ def event_details_view(request, event_id):
     """A view for render single event details"""
 
     event_details = get_object_or_404(Event, pk=event_id)
+    comments = Comment.objects.filter(event=event_id)
 
     context = {
         'event_details': event_details,
+        'comments': comments
     }
 
     return render(request, 'comment/event_details.html', context)
-
-
-class CommentView(ListView):
-    """a view for loading all comments"""
-
-    template_name = "comment/event_details.html"
-    context_object_name = "comment_list"
-    paginate_by = 5
-
-    def get_queryset(self):
-        return Comment.objects.filter(comment_list=self.kwargs["event_id"])
-
 
 
 @login_required

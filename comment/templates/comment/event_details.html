@@ -59,6 +59,7 @@
             </div>
 
             <hr>
+            
             {% if user.is_authenticated %}
                 <div class="row justify-content-center">
                     <div class="col-8">
@@ -90,7 +91,6 @@
                    
                         </form>
 
-                        <!-- <a class="btn btn-outline-info submit-comment">Submit</a>  -->
                     </div>
 
                 </div>
@@ -103,24 +103,24 @@
                 <br>
             {% endif %}
 
-            <h5 class="text-dark">There are {{ comments.count }} comments</h5>
+            <h5 class="text-dark">There are {{ comments.count }} comments:</h5>
             <div>
-                <p class="text-dark">testing</p>
-                {% for comment in comments_list %}
+                {% for comment in comments %}
                     <hr>
                     <p>
-                        <strong style="color: pink">
+                        <span class="text-info">
                             {{ comment.user }}
-                        </strong> 于 
-                        <span style="color: green">
-                            {{ comment.created|date:"Y-m-d H:i:s" }}
+                        </span> 
+                        <span>
+                            {{ comment.created_time|date:"d-M-Y H:i:s" }}
                         </span> wrote:
                     </p>
-                    <pre style="font-family: inherit; font-size: 1em;">
-                    {{ comment.body }}</pre>
+                    <p>
+                        {{ comment.body }}
+                    </p>
                 {% endfor %}
             </div>
-            
+
         </div>
 
         <div class="mt-5">
