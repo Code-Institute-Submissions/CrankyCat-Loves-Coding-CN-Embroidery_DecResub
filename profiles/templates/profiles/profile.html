@@ -26,7 +26,11 @@
                 <div class="card bg-black">
                     <div class="card-header" id="headingOne">
 
-                        <button class="btn btn-link col-md-12 d-flex justify-content-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button 
+                            class="btn btn-link col-md-12 d-flex justify-content-center" 
+                            type="button" data-toggle="collapse" data-target="#collapseOne" 
+                            aria-expanded="true" aria-controls="collapseOne"
+                        >
                             <span class="icon mr-2">
                                 <i class="fa-regular fa-hand-pointer"></i>
                             </span>
@@ -49,7 +53,11 @@
                 <div class="card bg-black">
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
-                            <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button 
+                                class="btn btn-link col-md-12 d-flex justify-content-center collapsed" 
+                                type="button" data-toggle="collapse" data-target="#collapseThree" 
+                                aria-expanded="false" aria-controls="collapseThree"
+                            >
                                 <span class="icon mr-2">
                                     <i class="fa-regular fa-hand-pointer"></i>
                                 </span>
@@ -61,7 +69,7 @@
                     
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                         <ul class="list-group">
-                            {% for order in orders %}
+                            {% for order in order_list %}
                             <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
                                 
                                 <div>
@@ -80,6 +88,34 @@
                             </li> 
                             {% endfor %}
 
+                            <!-- pagination -->
+                            <nav>
+                                <ul class="pagination justify-content-center">
+                                    {% if order_list.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page=1">&laquo; First</a>
+                                    </li>
+                                    
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ order_list.previous_page_number }}">Previous</a>
+                                    </li>
+                                    {% endif %}
+                    
+                                    <span class="current">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">
+                                            Page {{ order_list.number }} of {{ order_list.paginator.num_pages }}.
+                                        </a>
+                                    </li>
+                                    </span>
+                    
+                                    {% if order_list.has_next %}
+                                        <li class="page-item"><a class="page-link" href="?page={{ order_list.next_page_number }}">Next</a></li>
+                                        <li class="page-item"><a class="page-link" href="?page={{ order_list.paginator.num_pages }}">Last &raquo;</a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                            <!-- pagination -->
             
                         </ul>
 
@@ -90,7 +126,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-5">
 			<div class="col-12 col-lg-7 text-right mb-4">
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -7,11 +8,12 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 
-
 @login_required
 def profile(request):
     """ Display the user's profile. """
+
     profile = get_object_or_404(UserProfile, user=request.user)
+
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
@@ -27,17 +29,25 @@ def profile(request):
 
     orders = profile.orders.all()
 
+    # set up pagination
+    p = Paginator(orders, 5)
+    page = request.GET.get('page')
+    order_list = p.get_page(page)
+
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'order_list': order_list
     }
 
     return render(request, template, context)
 
 
 def order_history(request, order_number):
+    """ A view for render user order history """
+
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
