@@ -105,7 +105,7 @@
 
             <h5 class="text-dark">There are {{ comments.count }} comments:</h5>
             <div>
-                {% for comment in comments %}
+                {% for comment in comment_list %}
                     <hr>
                     <p>
                         <span class="text-info">
@@ -115,12 +115,42 @@
                             {{ comment.created_time|date:"d-M-Y H:i:s" }}
                         </span> wrote:
                     </p>
+
                     <p>
                         {{ comment.body }}
                     </p>
                 {% endfor %}
             </div>
 
+
+            <!-- pagination -->
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {% if comment_list.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">&laquo; First</a>
+                    </li>
+                    
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ comment_list.previous_page_number }}">Previous</a>
+                    </li>
+                    {% endif %}
+    
+                    <span class="current">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            Page {{ comment_list.number }} of {{ comment_list.paginator.num_pages }}.
+                        </a>
+                    </li>
+                    </span>
+    
+                    {% if comment_list.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ comment_list.next_page_number }}">Next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ comment_list.paginator.num_pages }}">Last &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <!-- pagination -->
         </div>
 
         <div class="mt-5">

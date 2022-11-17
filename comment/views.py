@@ -1,6 +1,7 @@
 """view for store events and comments"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views.generic import ListView
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import markdown2
@@ -40,14 +41,20 @@ class DraftEventView(ListView):
 
 
 def event_details_view(request, event_id):
-    """A view for render single event details"""
+    """A view for render single event details and comments"""
 
     event_details = get_object_or_404(Event, pk=event_id)
-    comments = Comment.objects.filter(event=event_id)
+    comments = Comment.objects.filter(event=event_id).order_by("-created_time")
+
+    # set up pagination
+    p = Paginator(comments, 5)
+    page = request.GET.get('page')
+    comment_list = p.get_page(page)
 
     context = {
         'event_details': event_details,
-        'comments': comments
+        'comments': comments,
+        'comment_list': comment_list
     }
 
     return render(request, 'comment/event_details.html', context)

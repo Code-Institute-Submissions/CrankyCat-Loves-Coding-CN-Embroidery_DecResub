@@ -180,5 +180,6 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
   - [x] [Wiki](https://www.wikipedia.org/)
   - [x] [Article 1](http://k.sina.com.cn/article_7059102645_p1a4c15bb500100hze9.html?from=cul )
   - [x] [README Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#uploading-assets)
+  - [x] [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo&t=354s&ab_channel=Codemy.com)
 
 [Back to the top](#overview)
