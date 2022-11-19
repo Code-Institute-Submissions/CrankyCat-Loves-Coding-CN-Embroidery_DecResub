@@ -1,5 +1,6 @@
+"""store event and comments to store events"""
+
 from django.db import models
-from django.shortcuts import reverse
 from django.contrib.auth.models import User
 
 
@@ -25,7 +26,7 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         ordering = ['-created_time']
 
@@ -51,4 +52,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body[:20]
-

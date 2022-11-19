@@ -49,10 +49,12 @@
                     <span class="text-info">Like {{event.likes}}</span>
                   </a>
 
-                  <button class="btn" type="button" data-toggle="modal" data-target=".modal-{{event.id}}">
+                  <a class="btn" 
+                    href="{% url 'event_details' event.id  %}"
+                  >
                     <i class="fa-regular fa-comment-dots mr-1 text-info"></i>
                     <span class="text-info">Comment</span>
-                  </button>
+                  </a>
 
                   <a class="btn" 
                     href="{% url 'event_details' event.id  %}"

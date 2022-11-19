@@ -1,3 +1,5 @@
+"""urls for event and comments """
+
 from django.urls import path
 from . import views
 
