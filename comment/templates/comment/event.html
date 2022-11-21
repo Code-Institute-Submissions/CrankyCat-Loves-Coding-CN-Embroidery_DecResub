@@ -24,67 +24,78 @@
         <div class="row">
           
           <div class="col">
-            
-            <div class="list-group">
-              {% for event in event_list %}
+            {% if event_list %}
+              <!-- with store events -->
+              <div class="list-group">
+                {% for event in event_list %}
 
-              <div class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action">
 
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1 text-info">{{ event.title }}</h5>
-                  
-                </div>
-
-                <p class="my-3">{{event.abstract}}</p>
-                
-                <p>
-
-                  <a class="btn">
-                    <i class="fa-regular fa-eye mr-1 text-info"></i>
-                    <span class="text-info">Views {{event.views}}</span>
-                  </a>
-
-                  <a class="btn">
-                    <i class="far fa-heart mr-1 text-info"></i>
-                    <span class="text-info">Like {{event.likes}}</span>
-                  </a>
-
-                  <a class="btn" 
-                    href="{% url 'event_details' event.id  %}"
-                  >
-                    <i class="fa-regular fa-comment-dots mr-1 text-info"></i>
-                    <span class="text-info">Comment</span>
-                  </a>
-
-                  <a class="btn" 
-                    href="{% url 'event_details' event.id  %}"
-                  >
-                    <i class="fa-solid fa-up-right-from-square mr-1 text-info"></i>
-                    <span class="text-info">Read More</span>
-                  </a>
-                  
-                </p>
-
-                <p><small class="text-muted">Created on {{event.created_time}}</small></p>
-
-                <div class="justify-content-between align-items-center">
-
-                  {% if request.user.is_superuser %}
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-info">{{ event.title }}</h5>
                     
-                    <a class="btn btn-outline-info" href="{% url 'edit_event' event.id %}">Edit</a>
-                    <a class="btn btn-outline-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                  </div>
 
-                  {% endif %}
+                  <p class="my-3">{{event.abstract}}</p>
+                  
+                  <p>
 
+                    <a class="btn">
+                      <i class="fa-regular fa-eye mr-1 text-info"></i>
+                      <span class="text-info">Views {{event.views}}</span>
+                    </a>
+
+                    <a class="btn">
+                      <i class="far fa-heart mr-1 text-info"></i>
+                      <span class="text-info">Like {{event.likes}}</span>
+                    </a>
+
+                    <a class="btn" 
+                      href="{% url 'event_details' event.id  %}"
+                    >
+                      <i class="fa-regular fa-comment-dots mr-1 text-info"></i>
+                      <span class="text-info">Comment</span>
+                    </a>
+
+                    <a class="btn" 
+                      href="{% url 'event_details' event.id  %}"
+                    >
+                      <i class="fa-solid fa-up-right-from-square mr-1 text-info"></i>
+                      <span class="text-info">Read More</span>
+                    </a>
+                    
+                  </p>
+
+                  <p><small class="text-muted">Created on {{event.created_time}}</small></p>
+
+                  <div class="justify-content-between align-items-center">
+
+                    {% if request.user.is_superuser %}
+                      
+                      <a class="btn btn-outline-info" href="{% url 'edit_event' event.id %}">Edit</a>
+                      <a class="btn btn-outline-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+
+                    {% endif %}
+
+                  </div>
+                  
                 </div>
                 
+                <div class="my-4"></div>
+
+                {% endfor %}
+
               </div>
-              
-              <div class="my-4"></div>
 
-              {% endfor %}
+            {% else %}
+              <!-- without store events -->
+              <div class="mb-5">
+                <img class="col-12" 
+                  src="https://res.cloudinary.com/dqj8itdfg/image/upload/v1669063017/CNE/no-upcoming-events-banner_hobqbm.svg"
+                >
+              </div>    
 
-            </div>
+            {% endif %}
 
             <!-- pagination -->
             <nav>

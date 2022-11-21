@@ -77,7 +77,7 @@ def add_event(request):
         if event_form.is_valid():
             event_form.save()
             messages.success(request, 'Successfully added event!')
-            return redirect('add_event')
+            return redirect('events')
         messages.error(
             request,
             (
@@ -192,3 +192,19 @@ def post_comment(request, event_id):
             request,
             'You are leaving a comment!'
         )
+
+
+@login_required
+def delete_comment(request, pk):
+    """delete store comment"""
+
+    # event_details = get_object_or_404(Event, pk=event_id)
+    comments = Comment.objects.filter(event=pk).last()
+    # event_details = Comment.event.
+
+    comments.delete()
+    messages.success(
+        request,
+        'comment deleted!'
+    )
+    return redirect(reverse('events',))
