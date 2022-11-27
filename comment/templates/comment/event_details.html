@@ -108,9 +108,9 @@
                 {% for comment in comment_list %}
                     <hr>
                     <p>
-                        <span class="text-info">
+                        <strong class="text-info">
                             {{ comment.user }}
-                        </span> 
+                        </strong> 
                         <span>
                             {{ comment.created_time|date:"d-M-Y H:i:s" }}
                         </span> wrote:
@@ -119,11 +119,14 @@
                     <p>
                         {{ comment.body }}
                     </p>
+                    
+                    {% if request.user.is_superuser %}
+                        <a class="btn" href="{% url 'delete_comment' comment.id %}">
+                            <i class="fa-solid fa-trash-can text-danger"></i>
+                            <span class="text-danger">Delete</span>
+                        </a>
+                    {% endif %}
 
-                    <a class="btn" href="{% url 'delete_comment' comment.id %}">
-                        <i class="fa-solid fa-trash-can text-danger"></i>
-                        <span class="text-danger">Delete</span>
-                    </a>
                 {% endfor %}
             </div>
 
