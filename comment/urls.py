@@ -24,8 +24,13 @@ urlpatterns = [
         name='post_comment'
     ),
     path(
-        'delete_comment/<int:pk>/',
+        'delete_comment/<int:comment_id>/',
         views.delete_comment,
         name='delete_comment'
     ),
+#     path(
+#         'delete_comment/<int:pk>/',
+#         views.delete_comment,
+#         name='delete_comment'
+#     ),
 ]

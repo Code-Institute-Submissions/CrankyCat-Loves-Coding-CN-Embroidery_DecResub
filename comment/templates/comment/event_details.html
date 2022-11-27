@@ -120,7 +120,7 @@
                         {{ comment.body }}
                     </p>
 
-                    <a class="btn" href="{% url 'delete_comment' event_details.id %}">
+                    <a class="btn" href="{% url 'delete_comment' comment.id %}">
                         <i class="fa-solid fa-trash-can text-danger"></i>
                         <span class="text-danger">Delete</span>
                     </a>

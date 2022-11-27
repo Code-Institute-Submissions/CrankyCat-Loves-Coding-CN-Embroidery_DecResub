@@ -195,16 +195,23 @@ def post_comment(request, event_id):
 
 
 @login_required
-def delete_comment(request, pk):
-    """delete store comment"""
+def delete_comment(request, comment_id):
+    """ Delete a comment, only apply to a superuser """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, Permission denied.')
+        return redirect(reverse('events'))
 
-    # event_details = get_object_or_404(Event, pk=event_id)
-    comments = Comment.objects.filter(event=pk).last()
-    # event_details = Comment.event.
+    # get the comment by the id
+    comment = get_object_or_404(Comment, pk=comment_id)
+    
+    # get the page user currently at
+    event_id = comment.event.id
 
-    comments.delete()
-    messages.success(
-        request,
-        'comment deleted!'
-    )
-    return redirect(reverse('events',))
+    # delete the comment 
+    comment.delete()
+
+    # send user a message
+    messages.success(request, f'Comment {comment.body} deleted.')
+
+    # redirect to the page
+    return redirect(reverse('event_details', args=[event_id]))
