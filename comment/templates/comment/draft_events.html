@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
@@ -7,13 +6,14 @@
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
     {% include 'home/home_nav.html' %}
+    
 
     <div class="album py-5 bg-black">
 
       <div class="row">
         <div class="col-12">
             <hr>
-            <h4 >Draft Store Events</h4>
+            <h4 >Draft Events</h4>
             <p class="text-muted text-right">Logged in as <span class="text-info">{{ user }}</span></p>
             <hr>
         </div>
@@ -23,62 +23,78 @@
         <div class="row">
           
           <div class="col">
-            
-            <div class="list-group">
-              {% for event in event_list %}
+            {% if event_list %}
+              <!-- with store events -->
+              <div class="list-group">
+                {% for event in event_list %}
 
-              <div class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action">
 
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1 text-info">{{ event.title }}</h5>
-                  
-                </div>
-
-                <p class="my-3">{{event.abstract}}</p>
-                
-                <p>
-
-                  <a class="btn">
-                    <i class="fa-solid fa-pen-nib text-success"></i>
-                    <span class="text-success">Status: {{event.status}}</span>
-                  </a>
-
-                  <a class="btn" href= "{% url 'edit_event' event.id %}">
-                    <i class="fa-solid fa-pen-to-square text-primary"></i>
-                    <span class="text-primary">Edit</span>
-                  </a>
-
-                  <a class="btn" href="{% url 'delete_event' event.id %}">
-                    <i class="fa-solid fa-trash-can text-danger"></i>
-                    <span class="text-danger">Delete</span>
-                  </a>
-
-                  <button class="btn" type="button" data-toggle="modal" data-target=".modal-{{event.id}}">
-                    <i class="fa-solid fa-up-right-from-square mr-1 text-info"></i>
-                    <span class="text-info">Read More</span>
-                  </button>
-                  
-                </p>                  
-                <p><small class="text-muted">Created on {{event.created_time}}</small></p>
-                
-              </div>
-              
-              <!-- modal -->
-              <div class="modal fade modal-{{event.id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                  <div class="modal-content">
-                    
-                    {% include 'comment/event_details.html' %}
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-info">{{ event.title }}</h5>
                     
                   </div>
+
+                  <p class="my-3">{{event.abstract}}</p>
+                  
+                  <p>
+
+                    <a class="btn">
+                      <i class="fa-regular fa-eye mr-1 text-info"></i>
+                      <span class="text-info">Views {{event.views}}</span>
+                    </a>
+
+                    <a class="btn">
+                      <i class="far fa-heart mr-1 text-info"></i>
+                      <span class="text-info">Like {{event.likes}}</span>
+                    </a>
+
+                    <a class="btn" 
+                      href="{% url 'event_details' event.id  %}"
+                    >
+                      <i class="fa-regular fa-comment-dots mr-1 text-info"></i>
+                      <span class="text-info">Comment</span>
+                    </a>
+
+                    <a class="btn" 
+                      href="{% url 'event_details' event.id  %}"
+                    >
+                      <i class="fa-solid fa-up-right-from-square mr-1 text-info"></i>
+                      <span class="text-info">Read More</span>
+                    </a>
+                    
+                  </p>
+
+                  <p><small class="text-muted">Created on {{event.created_time}}</small></p>
+
+                  <div class="justify-content-between align-items-center">
+
+                    {% if request.user.is_superuser %}
+                      
+                      <a class="btn btn-outline-info" href="{% url 'edit_event' event.id %}">Edit</a>
+                      <a class="btn btn-outline-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+
+                    {% endif %}
+
+                  </div>
+                  
                 </div>
+                
+                <div class="my-4"></div>
+
+                {% endfor %}
+
               </div>
 
-              <div class="my-4"></div>
+            {% else %}
+              <!-- without store events -->
+              <div class="mb-5">
+                <img class="col-12" 
+                  src="https://res.cloudinary.com/dqj8itdfg/image/upload/v1669063017/CNE/no-upcoming-events-banner_hobqbm.svg"
+                >
+              </div>    
 
-              {% endfor %}
-
-            </div>
+            {% endif %}
 
             <!-- pagination -->
             <nav>
@@ -92,7 +108,7 @@
                     <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
                   </li>
                 {% endif %}
-  
+
                 <span class="current">
                   <li class="page-item">
                     <a class="page-link" href="#">
@@ -100,7 +116,7 @@
                     </a>
                   </li>
                 </span>
-  
+
                 {% if page_obj.has_next %}
                   <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
                   <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
@@ -108,32 +124,7 @@
               </ul>
             </nav>
             <!-- pagination -->
-            
-            <div class="row">
-              <div class="col-12">
-                <form method="POST" action="{% url 'add_event' %}" class="mb-2" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  {{ form | crispy }}
-                  <div class="text-right mb-5">
 
-                    <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 text-white">
-                      <span class="icon mr-2">
-                        <i class="fa-solid fa-xmark"></i>
-                      </span>
-                      <span class="font-weight-bold">Cancel</span>
-                    </a>
-
-                    <a href="{% url 'add_event' %}" class="btn btn-black rounded-0 text-white">
-                      <span class="font-weight-bold">Add Event</span>
-                        <span class="icon ml-2">
-                          <i class="fa-solid fa-plus"></i>
-                        </span>
-                      </a>
-
-                  </div>
-                </form>
-              </div>            
-            </div>
           </div>
         </div>
 
