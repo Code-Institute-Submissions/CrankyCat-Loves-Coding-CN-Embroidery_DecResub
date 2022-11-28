@@ -48,10 +48,6 @@ body {
  * toast
  */
 
-/* .toast-position {
-  min-height: 200px;
-} */
-
 .toast-capper {
   height: 2px;
 }
@@ -152,6 +148,11 @@ body {
   font-weight: 700;
 }
 
+/* wishlist item image */
+.image-container {
+  width: 200px;
+  height: 250px;
+}
 
 /*
  * Footer

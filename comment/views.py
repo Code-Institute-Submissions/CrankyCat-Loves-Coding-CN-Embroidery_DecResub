@@ -47,9 +47,9 @@ def event_details_view(request, event_id):
     comments = Comment.objects.filter(event=event_id).order_by("-created_time")
 
     # set up pagination
-    p = Paginator(comments, 5)
+    display = Paginator(comments, 5)
     page = request.GET.get('page')
-    comment_list = p.get_page(page)
+    comment_list = display.get_page(page)
 
     context = {
         'event_details': event_details,

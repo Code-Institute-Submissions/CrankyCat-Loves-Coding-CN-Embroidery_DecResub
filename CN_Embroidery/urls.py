@@ -29,6 +29,7 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('comment/', include('comment.urls')),
+    path('wishlist/', include('wishlist.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'CN_Embroidery.views.handler404'

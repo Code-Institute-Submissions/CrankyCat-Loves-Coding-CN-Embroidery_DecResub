@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+
+  <div class="row justify-content-center p-4">
+    <div class="col-8">
+      {% include 'home/home_nav.html' %} 
+    </div>
+  </div>
+        
+  <div class="container">
+
+    <!-- wishlist subject -->
+    <div class="row">
+      <div class="col-12">
+          <hr>
+          <h4 >Your Wish List</h4>
+          <p class="text-muted text-right col-10">Logged in as <span class="text-info">{{ user }}</span></p>
+          <hr>
+      </div>
+    </div>
+
+    <!-- wishlist items -->
+    <div class="row mb-2">
+
+      {% for product in wishlist.products.all %}
+
+        <div class="col-md-6">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            
+            <div class="col p-4 d-flex flex-column position-static">
+
+              <strong class="d-inline-block mb-2 text-info">{{ product.name }}</strong>
+              <div class="mb-1 text-muted"> € {{ product.price }}</div>
+              <p class="card-text mb-auto">{{ product.description |truncatechars:100 }}</p>
+
+              <hr>
+              <a class="text-info btn" href="{% url 'product_detail' product.id %}" >
+                Product Details
+              </a>
+              <a class="text-danger btn " href="{% url 'remove_from_wishlist' product.id %}" >
+                Remove from wishlist
+              </a>
+
+            </div>
+
+            <div class="col-auto d-none d-lg-block">
+
+              <div class="image-container mt-5">
+                {% if product.image %}
+                  <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                  </a>
+                {% else %}
+                  <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image-available.png" alt="{{ product.name }}">
+                  </a>
+                {% endif %}
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      {% empty %}
+
+        <!-- empty wishlist -->
+        <div class="mb-5 col-md-12">
+          <h1 class="text-warning "><strong>Oops ...!</strong></h1>
+          <h5 class="text-white my-5">Your wishlist is currently empty.</h5>
+          <a class="btn btn-light" href="{% url 'home' %}">Back to Home page</a>
+        </div> 
+
+      {% endfor %}
+      
+    </div>
+
+  </div>
+
+  <div class="mt-5 fixed-bottom">
+    {% include 'home/home_footer.html' %}
+  </div>
+
+</div>
+
+{% endblock %}

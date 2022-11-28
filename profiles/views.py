@@ -30,9 +30,9 @@ def profile(request):
     orders = profile.orders.all()
 
     # set up pagination
-    p = Paginator(orders, 5)
+    display = Paginator(orders, 5)
     page = request.GET.get('page')
-    order_list = p.get_page(page)
+    order_list = display.get_page(page)
 
     template = 'profiles/profile.html'
     context = {
