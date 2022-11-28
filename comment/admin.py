@@ -11,7 +11,6 @@ class PostAdmin(SummernoteModelAdmin):
         'created_time',
         'status',
         'views',
-        'likes',
     )
 
     summernote_fields = ('body')

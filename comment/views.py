@@ -46,6 +46,10 @@ def event_details_view(request, event_id):
     event_details = get_object_or_404(Event, pk=event_id)
     comments = Comment.objects.filter(event=event_id).order_by("-created_time")
 
+    # total of views
+    event_details.views += 1
+    event_details.save(update_fields=['views'])
+
     # set up pagination
     display = Paginator(comments, 5)
     page = request.GET.get('page')

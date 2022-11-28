@@ -17,7 +17,6 @@ class EventForm(forms.ModelForm):
             'abstract',
             'body',
             'status',
-            'topped',
         ]
 
 

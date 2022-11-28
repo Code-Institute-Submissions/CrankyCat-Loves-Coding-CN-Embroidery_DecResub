@@ -21,8 +21,6 @@ class Event(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=True)
     views = models.PositiveIntegerField(default=0, null=True)
-    likes = models.PositiveIntegerField(default=0, null=True)
-    topped = models.BooleanField(default=False, null=True)
 
     def __str__(self):
         return self.title

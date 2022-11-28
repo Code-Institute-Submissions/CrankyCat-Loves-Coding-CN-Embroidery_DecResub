@@ -30,19 +30,9 @@
 
         <div class="blog-post bg-white text-dark p-4 p-md-5 ">
             <p>{{event_details.body|safe}}</p>
-
+            
             <div class="row mx-5 ">
                 <p class="text-left mx-2 my-2">
-                   
-                    <a class="btn">
-                        <i class="fa-regular fa-eye mr-1 text-info"></i>
-                        <span class="text-info">Views {{event.views}}</span>
-                    </a>
-    
-                    <a class="btn">
-                        <i class="far fa-heart mr-1 text-info"></i>
-                        <span class="text-info">Like {{event.likes}}</span>
-                    </a>
                     
                     {% if request.user.is_superuser %}
                         <a class="btn" href= "{% url 'edit_event' event_details.id %}">
@@ -57,7 +47,7 @@
                     {% endif %}
                 </p>
             </div>
-
+            
             <hr>
             
             {% if user.is_authenticated %}
