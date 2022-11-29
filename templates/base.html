@@ -69,6 +69,9 @@
       <!-- Stripe -->
       <script src="https://js.stripe.com/v3/"></script>
 
+      <!-- Sweet Alert2 -->
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
       <!-- Mailchimp -->
       <script 
         type='text/javascript' 
@@ -158,6 +161,32 @@
     {% block postloadjs %}
     <script type="text/javascript">
       $('.toast').toast('show');
+    </script>
+
+    <script>
+      $('.delete').on('click', function(e){
+        e.preventDefault();
+        var self = $(this);
+        console.log(self.data('title'));
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            location.href = self.attr('href');
+          }
+        })
+      })
     </script>
     {% endblock %}
   </body>

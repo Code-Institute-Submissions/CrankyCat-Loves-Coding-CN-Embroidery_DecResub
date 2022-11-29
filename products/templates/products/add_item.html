@@ -25,7 +25,7 @@
         {% if request.user.is_superuser %}
                             
             <a class="btn btn-outline-info mt-3" href="{% url 'edit_product' product.id %}">Edit</a>
-            <a class="btn btn-outline-danger mt-3" href="{% url 'delete_product' product.id %}">Delete</a>
+            <a class="btn btn-outline-danger mt-3 delete" href="{% url 'delete_product' product.id %}">Delete</a>
         
         {% endif %}
 
