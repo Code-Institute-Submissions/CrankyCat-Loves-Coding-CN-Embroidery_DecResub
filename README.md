@@ -25,6 +25,44 @@ This is an e-commerce web application complete with product search and filter fu
 
 The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroidery has been popular in China for thousands of years，most of the Chinese embroideries are made of silk. It is commonly made by hand, especially for very sophisticated design. It's considered as one of best gifts or collections. This website is built to introduce Chinese Embroidery and sell high quality Chinese Embroidery.
 
+- **UX**
+  - Strategy
+    - The target audience for CNEbroidery are:
+      - 30 to 55 year olds
+      - people who loves Chinese culture
+      - people who loves traditional craft
+      - people who loves to collect arts
+    - These users will be looking for:
+      - Ability to view & purchase works that are for sale
+      - User account functionality to view past orders and store billing information
+      - A way to sign up for the store newsletter
+
+- **User Stories**
+  - Part 1 - Core Functionality:
+    - As a **user** I can intuitively navigate through the site so that I can view desired content.
+    - As a **user** I can find a navigation bar and footer so that I can see what content there is on the website.
+    - As a **user** I am notified about any changes I have made so that I have a clear understanding of what has been completed/updated/failed.
+    - As a **user** I can access the website on both mobile and desktop so that I can view the information regardless of my location.
+  - Part 2 - Products:
+    - As a **user**  I can view all products that are available to buy.
+    - As a **user**  I can easily find all of the relevant information about the products so that I can make informed decisions before purchasing.
+    - As a **user**  I can filter products by categories to have more control over what I'm viewing.
+  - Part 3 - Orders/Basket:
+    - As a **user** I am able to process orders by making a card payment.
+    - As a **user** I can view a breakdown of their current basket so that I can make changes if required.
+    - As a **user** I receive order confirmations to be sure my order has been processed.
+  - Part 4 - Admin Functionality:
+    - As an **admin user** I can log in so that I can access the site's backend.
+    - As an **admin user** I am able to log in to see the product management page so that I can make changes in the front end.
+    - As an **admin user** I can add/edit/remove items from the product model.
+  - Part 5 - User Account:
+    - As a **user**  I can register & login so that I can view my orders.
+    - As a **user**  I can access my profile page so that I can view my previous orders & wishlist.
+    - As a **user**  I can save my default billing/shipping details so that I can save time making my next purchase.
+  - Part 6 - Marketing:
+    - As an **admin user** I can add/edit/delete store events to be displayed on the website.
+    - As a **user** I can find a store event easily and find out what s happening in the store. I can also leave a comment to share my thoughts.
+
 [Back to the top](#overview)
 
 ### **2. How to Achieve?**
