@@ -124,6 +124,10 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 
     ![Flow Chart](media/CNE-flowchat.jpg)
 
+  - **Database Schema**
+
+  [Database Schema details](https://github.com/CrankyCat-Loves-Coding/CN-Embroidery/blob/main/media/doc/CNE_database_schema.pdf)
+
 [Back to the top](#overview)
 
 ### 3. **Testing and Launch**
