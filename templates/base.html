@@ -1,12 +1,12 @@
 {% load static %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
 
     {% block meta %}
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta charset="utf-8">
+      <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="
         High quality handmande embroidery art,
@@ -32,7 +32,7 @@
       <!-- summernote css -->
       <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
-      <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -74,11 +74,10 @@
 
       <!-- Mailchimp -->
       <script 
-        type='text/javascript' 
         src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
       </script>
       
-      <script type='text/javascript'>
+      <script>
         (function($) {
           window.fnames = new Array(); 
           window.ftypes = new Array();
@@ -108,7 +107,7 @@
   </head>
 
   <body>
-    <header class="container-fluid fixed-top">
+    <div class="container-fluid fixed-top">
       <style>
         .bd-placeholder-img {
           font-size: 1.125rem;
@@ -129,7 +128,7 @@
           }
         }
       </style>
-    </header>
+    </div>
 
     {% if messages %}
       <div class="message-container fixed-top">
