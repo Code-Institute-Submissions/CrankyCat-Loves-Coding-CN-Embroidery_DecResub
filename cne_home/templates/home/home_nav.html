@@ -50,6 +50,7 @@
                     <a class="dropdown-item" href="{% url 'products' %}?category=decoration">Decoration</a>
                     <a class="dropdown-item" href="{% url 'products' %}?category=fashion">Fashion</a>
                     <a class="dropdown-item" href="{% url 'products' %}?category=offers">Offers</a>
+                    <a class="dropdown-item" href="{% url 'view_bag' %}">View Cart</a>
                     <hr>
                     <a class="dropdown-item" href="{% url 'events' %}">Store Events</a>
                 </div>
@@ -105,6 +106,7 @@
             
             <!-- Cart dropdown -->
             <div class="nav-item dropdown">
+                
                 <a
                     class="
                         nav-link 
@@ -138,7 +140,6 @@
                                 Total amount: €0.00
                             {% endif %}    
                         </p>
-                        <span><a class="dropdown-item" href="{% url 'view_bag' %}">View Cart</a></span>
                         
                     </div>
                 </a>
