@@ -2,7 +2,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head class="container-fluid fixed-top">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+  
+      .logo-font {
+        font-family: 'Pacifico', cursive;
+      }
+  
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+      }
+    </style>
 
     {% block meta %}
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -107,28 +128,6 @@
   </head>
 
   <body>
-    <div class="container-fluid fixed-top">
-      <style>
-        .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-        }
-    
-        .logo-font {
-          font-family: 'Pacifico', cursive;
-        }
-    
-        @media (min-width: 768px) {
-          .bd-placeholder-img-lg {
-              font-size: 3.5rem;
-          }
-        }
-      </style>
-    </div>
 
     {% if messages %}
       <div class="message-container fixed-top">
