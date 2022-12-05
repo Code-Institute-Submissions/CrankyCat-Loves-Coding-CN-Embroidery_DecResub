@@ -129,7 +129,7 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 ### 3. **Testing and Launch**
 
 - Link to Testing documentation
-  - ![Testing records](doc/cne_testing_record.pdf)
+  - [Testing records](https://github.com/CrankyCat-Loves-Coding/CN-Embroidery/blob/main/media/doc/cne_testing_record.pdf)
 
 - PEP8 validation
 
@@ -192,15 +192,8 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 
 - The site was deployed to [CNEmbroidery]( https://cnembroidery.herokuapp.com/) page. The steps to deploy are as follows:
 
-- In the Heroku page, select ‘Create new app’
-
-- Create app name and choose a region
-
-- Navigate to the setting tab. Add Python and node.js buildpacks
-
-- At the deploy section, connect to Github, search and link to CNEmbroidery repository.
-
-- Scroll down to set up automatic deploys, it enables Heroku to rebuild the app every time push code to Github.
+- Deploy details
+[Deployment details](https://github.com/CrankyCat-Loves-Coding/CN-Embroidery/blob/main/media/doc/Deployment.pdf)
 
 - The live link can be found here [link]( https://cnembroidery.herokuapp.com/)
 
