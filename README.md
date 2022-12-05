@@ -132,8 +132,8 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
   - Profile App: save defalt delivery info and order history
   - Comment App: to add a store event and leave comments
   - Wishlist App: to save any products to wishlist and make a purchase later
-  
-  - ![Database Schema details](media/cne_database_schema.png)
+
+  ![Database Schema details](media/cne_database_schema.png)
 
 [Back to the top](#overview)
 
