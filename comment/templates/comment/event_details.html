@@ -88,7 +88,9 @@
             {% else %}
                 <br>
                 <h5 class="row justify-content-center">
-                    Please <a href="{% url 'account/login.html' %}">login</a> to leave a comment 
+                    Please 
+                    <a href="{% url 'account_login' %}" class="text-info mx-2"> Login </a> 
+                    to leave a comment 
                 </h5>
                 <br>
             {% endif %}
@@ -120,7 +122,6 @@
                 {% endfor %}
             </div>
 
-
             <!-- pagination -->
             <nav>
                 <ul class="pagination justify-content-center">
@@ -149,6 +150,26 @@
                 </ul>
             </nav>
             <!-- pagination -->
+        </div>
+
+        <div class="text-right mt-5 mb-2">
+            
+            {% if request.user.is_superuser %}
+                <a href="{% url 'draft_events' %}" class="btn btn-outline-black rounded-0 text-white">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="font-weight-bold">Back to Draft Events</span>
+                </a>
+            {% endif %}
+
+            <a href="{% url 'events' %}"  class="btn btn-black rounded-0 text-white">
+                <span class="font-weight-bold">Back to Store Events</span>
+                <span class="icon">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </a>
+
         </div>
 
         <div class="mt-5">
