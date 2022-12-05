@@ -67,9 +67,6 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 
 ### **2. How to Achieve?**
 
-- **User Stories**
-
-
 - **User View**
 
   ![Welcome-page](media/home-page-intro.gif)
@@ -130,6 +127,9 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 [Back to the top](#overview)
 
 ### 3. **Testing and Launch**
+
+- Link to Testing documentation
+  - ![Testing records](doc/cne_testing_record.pdf)
 
 - PEP8 validation
 
