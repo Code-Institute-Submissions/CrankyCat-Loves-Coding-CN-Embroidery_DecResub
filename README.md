@@ -103,8 +103,7 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 
     ![order-history](media/order-history.jpg)
 
-
-    - ***Products***: all products page contain product image, product name, product category, product size, product price. Click on 'Details' bottom will be redirected to product detail page which will show description of the product and a bottom to add to cart. 
+    - ***Products***: all products page contain product image, product name, product category, product size, product price. Click on 'Details' bottom will be redirected to product detail page which will show description of the product and a bottom to add to cart.
 
     - ***Payment***: Stripe is used to collect payment. Order confirmation email will be sent after user completed payment. User will be able to view order summary at the check-out-success page.
 
@@ -118,7 +117,6 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
   Editing and removing option will be display is user is authenticated.
 
   ![Edit product](media/edit-product.gif)
-
 
 - **Program flow chart**
 
@@ -159,7 +157,7 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
   - ***Error 2***
     - ***Error message***: TypeError: expected str, bytes or os.PathLike object, not tuple
     - ***Solution***: ```MEDIA_ROOT = os.path.join(BASE_DIR, 'media')```, media_root was incorrectly set
-    
+
   - ***Error 3***
     - ***Error message***: Class Product has no objects member
     - ***Solution***:
@@ -172,7 +170,7 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
     - ***Solution***:
       - basicly to solved this error is to completely remove your Django migrations and reset your database.
       - before doing that it is better to save database by using ```python3 manage.py dumpdata products.product > products_dump.json```,```python3 manage.py dumpdata products.category > categories_dump.json```. this can be skip if fixture is in place. This is how we got them.products is the app name, product is the model, products_dump.json is the name of the file we put the data in
-      - Remove the all migrations files within your project. Go through each of your project apps' migration folders and remove everything inside, except the __init__.py file.
+      - Remove the all migrations files within your project. Go through each of your project apps' migration folders and remove everything inside, except the ```__init__```.py file.
       - Drop the database. If you're using Heroku Postgres, the command for this is: ```heroku pg:reset DATABASE_URL```, need to login to Heroku ```Heroku login -i``` before doing that
       - Run the commands ```python3 manage.py makemigrations``` and ```python3 manage.py migrate``` to remake migrations and setup the new database
       - ```python3 manage.py loaddata categories```, ```python3 manage.py loaddata products``` to load data back
@@ -194,8 +192,6 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
   - [x] [lucid](https://lucid.app/)
   - [x] [Sweet Alert 2](https://sweetalert2.github.io/#download)
   - [x] [elephantsql](https://www.elephantsql.com/)
-
-  **Other**
   - [x] [Responsive design](http://ami.responsivedesign.is/#)
   - [x] [Ezgif](https://ezgif.com/)
 
@@ -232,6 +228,5 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
   - [x] [Dusai](https://www.dusaiphoto.com/?page=5)
   - [x] [Coder 凯歌响起](https://blog.csdn.net/a13554371686?type=ask)
   - [x] Code Institute Tutor Assistance
-
 
 [Back to the top](#overview)
