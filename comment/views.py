@@ -29,15 +29,15 @@ class DraftEventView(ListView):
     """a view for loading all draft events for the shop"""
 
     template_name = "comment/draft_events.html"
-    context_object_name = "event_list"
+    context_object_name = "draft_events"
     paginate_by = 3
 
     def get_queryset(self):
-        event_list = Event.objects.filter(status='draft')
+        draft_events = Event.objects.filter(status='draft')
 
-        for event in event_list:
+        for event in draft_events:
             event.body = markdown2.markdown(event.body,)
-        return event_list
+        return draft_events
 
 
 def event_details_view(request, event_id):
@@ -81,7 +81,7 @@ def add_event(request):
         if event_form.is_valid():
             event_form.save()
             messages.success(request, 'Successfully added event!')
-            return redirect('events')
+            return redirect(request.META.get('HTTP_REFERER'))
         messages.error(
             request,
             (
@@ -156,7 +156,13 @@ def delete_event(request, event_id):
         request,
         f'{event.status} event {event.title} deleted!'
     )
-    return redirect(reverse('events',))
+    if event.status == 'published':
+        return redirect(
+            reverse('events')
+        )
+    return redirect(
+        reverse('draft_events')
+    )
 
 
 @login_required
