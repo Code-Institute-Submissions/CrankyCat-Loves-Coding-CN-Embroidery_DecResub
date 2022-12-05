@@ -20,6 +20,7 @@
                     Your order is now completed. 
                     A confirmation email will be sent to <strong>{{ order.email }}</strong>
                 </p>
+                <p class="text-muted">Click eash subject to show details of your order</p>
             </div>
         </div>
 
@@ -30,16 +31,17 @@
                 <div class="card bg-black">
                     <div class="card-header" id="headingOne">
 
-                        <button class="btn btn-link col-md-12 d-flex justify-content-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="btn btn-link col-md-12 d-flex justify-content-center" type="button" data-toggle="collapse" data-target="#order-info" aria-expanded="true" aria-controls="order-info">
                             <span class="icon mr-2">
-                                <i class="fa-regular fa-hand-pointer"></i>
+                                <i class="fa-regular fa-hand-pointer text-info"></i>
                             </span>
-                            <h4 class="text-white">Order information:</h4>
+                            <h4 class="text-info">Order information:</h4>
                         </button>
+                        <p class="text-muted">Click to show more</p>
 
                     </div>
               
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="order-info" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
                             <ul class="list-group mb-3">
                                 <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
@@ -65,16 +67,17 @@
                 <div class="card bg-black">
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
-                            <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#deiverying-info" aria-expanded="false" aria-controls="deiverying-info">
                                 <span class="icon mr-2">
-                                    <i class="fa-regular fa-hand-pointer"></i>
+                                    <i class="fa-regular fa-hand-pointer text-info"></i>
                                 </span>
-                                <h4 class="text-white">Delivering To:</h4>
+                                <h4 class="text-info">Delivering To:</h4>
                             </button>
                         </h2>
+                        <p class="text-muted">Click to show more</p>
                     </div>
 
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div id="deiverying-info" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="card-body">
                                 <ul class="list-group mb-3">
@@ -149,16 +152,17 @@
                 <div class="card bg-black">
                   <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
-                        <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#order-details" aria-expanded="false" aria-controls="order-details">
                             <span class="icon mr-2">
-                                <i class="fa-regular fa-hand-pointer"></i>
+                                <i class="fa-regular fa-hand-pointer text-info"></i>
                             </span>
-                            <h4 class="text-white">Order Details:</h4>
+                            <h4 class="text-info">Order Details:</h4>
                         </button>
                     </h2>
+                    <p class="text-muted">Click to show more</p>
                   </div>
 
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div id="order-details" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
                         {% for item in order.lineitems.all %}
                             <ul class="list-group mb-3">
@@ -179,15 +183,16 @@
                 <div class="card bg-black">
                     <div class="card-header" id="headingFour">
                         <h2 class="mb-0">
-                        <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <span class="icon mr-2">
-                                <i class="fa-regular fa-hand-pointer"></i>
-                            </span>
-                            <h4 class="text-white">Billing Info:</h4>
-                        </button>
+                            <button class="btn btn-link col-md-12 d-flex justify-content-center collapsed" type="button" data-toggle="collapse" data-target="#billing-info" aria-expanded="false" aria-controls="billing-info">
+                                <span class="icon mr-2">
+                                    <i class="fa-regular fa-hand-pointer text-info"></i>
+                                </span>
+                                <h4 class="text-info">Billing Info:</h4>
+                            </button>
                         </h2>
+                        <p class="text-muted">Click to show more</p>
                     </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div id="billing-info" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                         <div class="card-body">
                             <ul class="list-group mb-3">
                                 <li class="list-group-item d-flex justify-content-between lh-condensed bg-black">
