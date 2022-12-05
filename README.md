@@ -1,6 +1,6 @@
 # [**CNEbroidery**](https://cnembroidery.herokuapp.com/)
 
-![Portfolio image](media/home-page.jpg)
+![Portfolio image](media/home-page.png)
 
 ## **Overview**
 
@@ -192,6 +192,8 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
   - [x] [Heroku]( https://dashboard.heroku.com/apps)
   - [x] [Privacy Policy Generator](https://www.privacypolicygenerator.info/ )
   - [x] [lucid](https://lucid.app/)
+  - [x] [Sweet Alert 2](https://sweetalert2.github.io/#download)
+  - [x] [elephantsql](https://www.elephantsql.com/)
 
   **Other**
   - [x] [Responsive design](http://ami.responsivedesign.is/#)
@@ -218,10 +220,18 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 
 ### 6. **Reference and Research**
 
-- Reference
+- Reference/Credit
   - [x] [Wiki](https://www.wikipedia.org/)
   - [x] [Article 1](http://k.sina.com.cn/article_7059102645_p1a4c15bb500100hze9.html?from=cul )
   - [x] [README Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#uploading-assets)
   - [x] [Codemy.com](https://www.youtube.com/watch?v=N-PB-HMFmdo&t=354s&ab_channel=Codemy.com)
+  - [x] [Heiwa Gallery](https://github.com/daisygunn/heiwa-gallery#technologies-used)
+  - [x] [Nourish and Lift](https://github.com/Harry-Leepz/Nourish-and-Lift)
+  - [x] [boutique_ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
+  - [x] [Code Star](https://github.com/Code-Institute-Solutions/Django3blog/tree/master/12_final_deployment)
+  - [x] [Dusai](https://www.dusaiphoto.com/?page=5)
+  - [x] [Coder 凯歌响起](https://blog.csdn.net/a13554371686?type=ask)
+  - [x] Code Institute Tutor Assistance
+
 
 [Back to the top](#overview)
