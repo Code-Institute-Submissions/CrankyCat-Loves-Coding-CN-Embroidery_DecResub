@@ -213,11 +213,11 @@ def delete_comment(request, comment_id):
 
     # get the comment by the id
     comment = get_object_or_404(Comment, pk=comment_id)
-    
+
     # get the page user currently at
     event_id = comment.event.id
 
-    # delete the comment 
+    # delete the comment
     comment.delete()
 
     # send user a message

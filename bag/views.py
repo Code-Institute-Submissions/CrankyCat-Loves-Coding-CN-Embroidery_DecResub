@@ -1,5 +1,4 @@
 """shopping bag view"""
-from decimal import Decimal
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages

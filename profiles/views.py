@@ -1,3 +1,4 @@
+"""profile app"""
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib import messages

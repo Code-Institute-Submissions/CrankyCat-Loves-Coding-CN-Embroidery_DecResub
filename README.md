@@ -140,9 +140,17 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 - Link to Testing documentation
   - [Testing records](https://github.com/CrankyCat-Loves-Coding/CN-Embroidery/blob/main/media/doc/cne_testing_record.pdf)
 
-- PEP8 validation
+- W3C Markup Validation Service [link](https://validator.w3.org/)
+  No errors found
+  ![W3C HTML](media/doc/W3C-Markup-Validation-Service.jpg)
 
-  - No errors or warnings were found when passing through the official PEP8 validator.
+- W3C CSS Validation Service [link](https://jigsaw.w3.org/css-validator/#validate_by_input)
+  No errors found
+  ![W3C CSS](media/doc/W3C-CSS-Validation-Service.jpg)
+
+- CI Python Linter [Link](https://pep8ci.herokuapp.com/)
+  No errors found
+  [Details](https://github.com/CrankyCat-Loves-Coding/CN-Embroidery/blob/main/media/doc/CI-Python-linter.pdf)
 
 - Errors and Solution
   - ***Error 1***

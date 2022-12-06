@@ -1,3 +1,4 @@
+"""wishlist app"""
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -35,7 +36,7 @@ def add_to_wishlist(request, product_id):
 
     # Create a wishlist for the user if they don't have one
     wishlist, _ = WishList.objects.get_or_create(user=request.user)
-    
+
     # Add product to the wishlist
     wishlist.products.add(product)
     messages.success(
