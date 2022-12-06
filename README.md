@@ -133,6 +133,11 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 
   ![Database Schema details](media/cne_database_schema.png)
 
+- **CNE wireframe**
+  - Wireframes can be found here
+    Website was designed to be clean and simple.
+    - [wireframe](https://github.com/CrankyCat-Loves-Coding/CN-Embroidery/blob/main/media/doc/CNE-Balsamiq.pdf)
+
 [Back to the top](#overview)
 
 ### 3. **Testing and Launch**
