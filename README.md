@@ -118,6 +118,10 @@ The name CNEmbroidery is a combination of 'CN' and 'Embroidery', Chinese Embroid
 
   ![Edit product](media/edit-product.gif)
 
+- 404 page
+  which displays when a user tries to access a URL that does not exist in the application.
+ ![404 page](media/404page.jpg)
+
 - **Program flow chart**
 
     ![Flow Chart](media/CNE-flowchat.jpg)
